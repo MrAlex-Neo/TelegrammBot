@@ -1,31 +1,46 @@
-body{
-	color: var(--tg-theme-text-color);
-	background: var(--tg-theme-bg-color);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 18px;
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    color: var(var(--tg-theme-text-color));
+    background: var(var(--tg-theme-bg-color));
 }
 
-.hint{
-	color: var(--tg-theme-hint-color);
+.container {
+    max-width: 390px;
 }
 
-.link{
-	color: var(--tg-theme-link-color);
+.inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
 }
 
-.button{
-	background: var(--tg-theme-button-color);
-	color: var(--tg-theme-button-text-color);
-	border: none;
-	font-size: 18px;
+.img {
+    width: 150px;
 }
 
-.button:not(:last-child){
-	margin-bottom: 20px
+.item {
+    text-align: center;
 }
 
-#usercard{
-	text-align: center;
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background: rgb(248, 168, 24);
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    transition: background .2s linear;
+}
+
+.btn:hover {
+    background: lightgreen;
+}
+
+.usercard {
+    text-align: center;
 }

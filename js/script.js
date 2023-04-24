@@ -1,49 +1,89 @@
-let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+let tg = window.Telegram.WebApp;
 
-tg.expand(); //расширяем на все окно  
+tg.expand();
 
-tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
-tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры 
+tg.MainButton.textColor = "#FFFFFF";
+tg.MainButton.color = "#2cab37";
 
-btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isVisible){ //если кнопка показана 
-		tg.MainButton.hide() //скрываем кнопку 
-	}
-  else{ //иначе
-  	tg.MainButton.show() //показываем 
-  }
-});
+let item = "";
 
-let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-	if (tg.MainButton.isActive){ //если кнопка показана 
-		tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-		tg.MainButton.disable() //скрываем кнопку 
-	}
-	else{ //иначе
-		tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-		tg.MainButton.enable() //показываем 
-	}
-});
+let btn1 = document.getElementById('btn1')
+let btn2 = document.getElementById('btn2')
+let btn3 = document.getElementById('btn3')
+let btn4 = document.getElementById('btn4')
+let btn5 = document.getElementById('btn5')
+let btn6 = document.getElementById('btn6')
 
-Telegram.WebApp.onEvent('mainButtonClicked', function(){
-	tg.sendData("some string that we need to send"); 
-	//при клике на основную кнопку отправляем данные в строковом виде
-});
+btn1.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 1!');
+        item = '1';
+        tg.MainButton.show();
+    }
+})
+btn2.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 2!');
+        item = '2';
+        tg.MainButton.show();
+    }
+})
+btn3.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 3!');
+        item = '3';
+        tg.MainButton.show();
+    }
+})
+btn4.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 4!');
+        item = '4';
+        tg.MainButton.show();
+    }
+})
+btn5.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 5!');
+        item = '5';
+        tg.MainButton.show();
+    }
+})
+btn6.addEventListener('click', function(){
+    if (tg.MainButton.isVisible) {
+        tg.MainButton.hide();
+    }
+    else {
+        tg.MainButton.setText('Вы выбрали товар 6!');
+        item = '6';
+        tg.MainButton.show();
+    }
+})
 
-let usercard = document.getElementById("usercard"); //получаем блок usercard 
+Telegram.WebApp.onEvent ('mainButtonClicked', function(){
+    tg.sendData(item)
+})
 
-let profName = document.createElement('p'); //создаем параграф
-profName.innerText = `${tg.initDataUnsafe.user.first_name}
-${tg.initDataUnsafe.user.last_name}
-${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-//выдем имя, "фамилию", через тире username и код языка
-usercard.appendChild(profName); //добавляем 
+let usercard = document.getElementById('usercard')
 
-let userid = document.createElement('p'); //создаем еще параграф 
-userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-usercard.appendChild(userid); //добавляем
+let p = document.createElement('p')
+
+p.innerText = `${tg.initDataUnsafe.user.First_name}`
+
+usercard.appendChild(p)
 
