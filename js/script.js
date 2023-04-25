@@ -21,7 +21,7 @@ let winEnd = document.querySelector('.windowDivEnd')
 
 function setPoints(a){
     let userBtn = event.target
-    a = userBtn.innerHTML 
+    a = userBtn.getAttribute('data-categoryID') 
     tg.MainButton.setText(text);
     tg.MainButton.show()
 }
