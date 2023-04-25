@@ -295,6 +295,9 @@ input:active, input:hover, input:focus {
     margin: 0;
 }
 
+#file {
+    display: none;
+}
 
 /* .pushFile {
     display: flex;
