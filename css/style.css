@@ -77,6 +77,11 @@ p {
     width: 90vw;
     margin: 0 auto;
 }
+.exercises {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 /* window2 */
 
 .winTwoFlex {
