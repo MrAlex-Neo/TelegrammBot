@@ -68,7 +68,7 @@ p {
     justify-content: center;
 
 }
-.win_One {
+.win_One, .winTwo, .winMain, .exercises, .windowDivEnd{
     width: 90vw;
     margin: 0 auto;
 }
