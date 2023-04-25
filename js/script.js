@@ -45,6 +45,8 @@ function showMainButton(text) {
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
+showMainButton('Далее')
+
 var a = ''
 let i = 0
 let state = states[i]
