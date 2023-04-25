@@ -160,11 +160,14 @@
             <div class="boxFive">
                 <img src="./img/Skrepka.svg" alt="">
             </div>
-            <div class="userBlockName">
-                <span>UserName</span>
-            </div>
+            <form method="post" enctype="multipart/form-data" action="">
+                <input type="button" id="btn" value="GO" />
+                <input type="file" id="file" name="file" />
+                <div class="userBlockName">
+                    <span>UserName</span>
+                </div>
+            </section>
         </section>
-    </section>
     <section class="windowDivEnd none">
         <div class="startTextImgSl end">
             <p>*Здесь должны быть фейерверки, но бюджет потрачен на твой приз*</p>
@@ -177,15 +180,20 @@
         <p class="blockP">!! Действует она ровно 48 часов
             Жми "ЗАБРАТЬ", если она тебе нужна 
             и мы расскажем как это сделать</p>
-        <div class="bigImgImgImgImgImg">
-            <img class="bigImg" src="./img/endGroup.svg" alt="">
+            <div class="bigImgImgImgImgImg">
+                <img class="bigImg" src="./img/endGroup.svg" alt="">
+            </div>
+        </section>
+        <div class="userBlockName">
+            <span id="username">UserName</span>
         </div>
-    </section>
-    <div class="userBlockName">
-        <span id="username">UserName</span>
-    </div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="./js/cookies.js"></script>
-    <script src="./js/script.js"></script>
-</body>
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script src="./js/cookies.js"></script>
+        <script src="./js/script.js"></script>
+    </body>
 </html>
