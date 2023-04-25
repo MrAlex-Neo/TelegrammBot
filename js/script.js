@@ -62,6 +62,7 @@ if(getCookie('category_id') != undefined) {
     i = 2
     state == states[3]
     showScreen(winThree)
+    showMainButton('Далее')
 } else {
     state = states[i]
     showMainButton('Далее')
