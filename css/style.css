@@ -17,6 +17,7 @@ body {
     font-family: 'TT Hoves';
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
+    margin: 0;
 }
 button {
     background-color: var(--tg-theme-button-color);

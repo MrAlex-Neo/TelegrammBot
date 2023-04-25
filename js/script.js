@@ -15,6 +15,7 @@ let states = [
 
 let state = 'hello'
 
+username.innerHTML = tg.initDataUnsafe.user.first_name
 
 
 function showMainButton(text) {
@@ -45,10 +46,10 @@ showMainButton('Далее', {"data-state": "hello"})
 //     });
 
 // if (window.onblur = function (){document.title = 'Удачки в прокачке!'}) {
-//         tg.MainButton.setText('Завершить');
-//             tg.MainButton.show();
-//     } 
-
+    //         tg.MainButton.setText('Завершить');
+    //             tg.MainButton.show();
+    //     } 
+    
 
 
     
@@ -57,14 +58,13 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     console.log(state)
 })
     
-let usercard = document.getElementById('usercard')
-username.innerHTML = tg.initDataUnsafe.user.first_name
+// let usercard = document.getElementById('usercard')
 
 // let p = document.createElement('p')
     
     // p.innerText = `${tg.initDataUnsafe.user.First_name}`
     
-usercard.appendChild(p)
+// usercard.appendChild(p)
 
 
 
