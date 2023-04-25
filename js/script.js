@@ -52,7 +52,7 @@ function showMainButton(text) {
 }
 
 
-// username.innerHTML = tg.initDataUnsafe.user.first_name
+username.innerHTML = tg.initDataUnsafe.user.first_name
 
 let i = 0
 let state
