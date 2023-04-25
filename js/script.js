@@ -53,6 +53,8 @@ let state = states[i]
 Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     i += 1;
     state = states[i]
+
+    console.log(state)
     if (state == states[1] ){
         // Выбор направления
         showScreen(winTwo)
@@ -64,17 +66,26 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     else if (state == states[2]){
         // Выбор Упражнения
         showScreen(winThree)
+
+        // удалить после тестов:
+        showMainButton('Далее')
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
+        // Генерировать и проверять все упражнения
+    
+
+        // удалить после тестов:
+        showMainButton('Далее')
+
     } else if (state == states[4]){
         // Финал
         showScreen(winEnd)
         showMainButton('Забрать скидку')
         state = states[2]
     }
-    showMainButton('Далее')
-    console.log(state)
+    
+    
 })
 
 // let state = states[0]
