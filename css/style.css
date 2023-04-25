@@ -12,7 +12,7 @@ var(--tg-theme-button-text-color)
 
 body {
     width: 100vw;
-    padding: 35px 0 55px 0;
+    padding: 35px 10% 55px 10%;
     position: relative;
     font-family: 'TT Hoves';
     background-color: var(--tg-theme-bg-color);

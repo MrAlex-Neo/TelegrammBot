@@ -27,7 +27,7 @@ function closeMainButton() {
 
 }
 
-showMainButton('Далее', {"data-state": "hello"})
+showMainButton('Далее')
 
 
 
