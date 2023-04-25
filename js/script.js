@@ -49,6 +49,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         winThree.classList.add('none')
         ex.classList.remove('none')
     } else if (state == states[4]){
+        showMainButton('Забрать скидку')
         ex.classList.add('none')
         winEnd.classList.remove('none')
     } 
