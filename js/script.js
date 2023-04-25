@@ -42,9 +42,6 @@ function showMainButton(text) {
     tg.MainButton.show();
 }
 
-function closeMainButton() {
-
-}
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
