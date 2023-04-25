@@ -88,12 +88,15 @@ p {
     align-items: center;
     gap: 20px;
     border-radius: 1em;
-    border-color: #AEB4C2;
+    border-color: 2px solid #AEB4C2;
     background-color: #ffffff;
     color: #333333;
 
     
     
+}
+.activeButton {
+    background-color: #3274FF;
 }
 
 .winTwoBox img{

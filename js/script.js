@@ -25,7 +25,16 @@ function setPoints(){
     a = userBtn.getAttribute('data-categoryID') 
     console.log(a)
     showMainButton('Далее')
-
+    if (userBtn.innerHTML == 'Маркетинг') {
+        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
+        document.querySelector('.winTwoFlex .one').classList.add('activeButton')
+      } else if (userBtn.innerHTML == 'Программирование') {
+        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
+        document.querySelector('.winTwoFlex .two').classList.add('activeButton')
+      } else if (userBtn.innerHTML == 'Дизайн') {
+        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
+        document.querySelector('.winTwoFlex .three').classList.add('activeButton')
+      }
     // Дописать класс active той кнопке, на которую нажал пользователь
 }
 
