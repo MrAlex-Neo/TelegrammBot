@@ -36,8 +36,8 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     if (state == states[1]){
         winOne.classList.add('none')
         winTwo.classList.remove('none')
-        tg.MainButton.hide()
-        document.querySelectorAll('.winTwoBox').forEach( btn => {
+        tg.MainButton.hide();
+        document.querySelectorAll('.winTwoBox').forEach((btn) => {
             btn.addEventListener('click', setPoints)
           })
         
