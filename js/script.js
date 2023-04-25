@@ -13,7 +13,7 @@ let states = [
     'final'
 ]
 
-let state = 'hello'
+// let state = states[0]
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
@@ -51,10 +51,14 @@ showMainButton('Далее')
     //     } 
     
 
-
-    
+let i = 0
+let state = states[i]
 Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     // tg.sendData(item)
+    console.log(state);
+    if (state == states[i]) {
+        state = states[1]
+    }
     console.log(state)
 })
     
