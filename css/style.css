@@ -88,13 +88,13 @@ p {
     align-items: center;
     gap: 20px;
     border-radius: 1em;
-    border-color: 2px solid #AEB4C2;
+    border: 2px solid #AEB4C2;
     background-color: #ffffff;
     color: #333333;
 }
 .activeButton {
     background-color: #3274FF;
-    border-color: 2px solid #3274FF;
+    border: 2px solid #3274FF;
     color: #ffffff;
 }
 
