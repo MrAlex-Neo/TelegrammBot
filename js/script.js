@@ -19,23 +19,19 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-function setPoints(){
-    let userBtn = event.target
-    console.log(userBtn)
-    a = userBtn.getAttribute('data-categoryID') 
-    console.log(a)
+function setPoints(categoryId){
     showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
         btn.classList.remove('activeButton')
     })
-    if (userBtn.innerText == 'Маркетинг') {
+    if (categoryId == 3) {
         document.querySelector('.winTwoBox.one').classList.add('activeButton')
-    } else if (userBtn.innerText == 'Программирование') {
+    } else if (categoryId == 1) {
         document.querySelector('.winTwoBox.two').classList.add('activeButton')
-    } else if (userBtn.innerText == 'Дизайн') {
+    } else if (categoryId == 2) {
         document.querySelector('.winTwoBox.three').classList.add('activeButton')
     }
-    // Дописать класс active той кнопке, на которую нажал пользователь
+    // Записать categoryId в кукис
 }
 
 function showScreen(elem) {
