@@ -61,7 +61,7 @@ if(getCookie('category_id') != undefined) {
     console.log(" ятут")
     i = 2
     state == states[3]
-    showScreen(ex)
+    showScreen(winThree)
 } else {
     state = states[i]
     showMainButton('Далее')
