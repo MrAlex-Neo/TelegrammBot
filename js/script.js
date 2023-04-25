@@ -67,7 +67,7 @@ if(getCookie('category_id') != undefined) {
     showMainButton('Далее')
 }
 
-Telegram.WebApp.onEvent ('mainButtonClicked', function(){
+Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
     state = states[i]
 
@@ -76,7 +76,6 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         // Выбор направления
         showScreen(winTwo)
         tg.MainButton.hide();
-
     }
     else if (state == states[2]){
         // Выбор Упражнения
@@ -88,11 +87,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
-    
 
         // удалить после тестов:
         showMainButton('Далее')
-
     } else if (state == states[4]){
         // Финал
         showScreen(winEnd)
