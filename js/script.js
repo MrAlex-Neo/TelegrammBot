@@ -26,14 +26,14 @@ function setPoints(){
     console.log(a)
     showMainButton('Далее')
     if (userBtn.innerHTML == 'Маркетинг') {
-        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
-        document.querySelector('.winTwoFlex .one').classList.add('activeButton')
+        document.querySelectorAll('.winTwoBox').classList.remuve('activeButton')
+        document.querySelector('.winTwoBox.one').classList.add('activeButton')
       } else if (userBtn.innerHTML == 'Программирование') {
-        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
-        document.querySelector('.winTwoFlex .two').classList.add('activeButton')
+        document.querySelectorAll('.winTwoBox').classList.remuve('activeButton')
+        document.querySelector('.winTwoBox.two').classList.add('activeButton')
       } else if (userBtn.innerHTML == 'Дизайн') {
-        document.querySelectorAll('.winTwoFlex').classList.remuve('activeButton')
-        document.querySelector('.winTwoFlex .three').classList.add('activeButton')
+        document.querySelectorAll('.winTwoBox').classList.remuve('activeButton')
+        document.querySelector('.winTwoBox.three').classList.add('activeButton')
       }
     // Дописать класс active той кнопке, на которую нажал пользователь
 }
