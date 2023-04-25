@@ -72,8 +72,6 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         // Финал
         showScreen(winEnd)
         showMainButton('Забрать скидку')
-        ex.classList.add('none')
-        winEnd.classList.remove('none')
         state = states[2]
     }
     showMainButton('Далее')
