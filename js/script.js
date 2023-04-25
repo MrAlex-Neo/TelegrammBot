@@ -13,19 +13,15 @@ let states = [
     'final'
 ]
 
-let winOne = document.querySelector('windowDivOne')
-let winTwo = document.querySelector('windowDivTwo')
-let winThree = document.querySelector('windowDivThree')
-let ex = document.querySelector('exercises')
-let winEnd = document.querySelector('windowDivEnd')
-
-winOne = states[0]
-winTwo = states[1]
-winThree = states[2]
-ex = states[3]
-winEnd = states[4]
+let winOne = document.querySelector('.windowDivOne')
+let winTwo = document.querySelector('.windowDivTwo')
+let winThree = document.querySelector('.windowDivThree')
+let ex = document.querySelector('.exercises')
+let winEnd = document.querySelector('.windowDivEnd')
 
 
+
+winOne.classList.add('none')
 
 let i = 0
 let state = states[i]
