@@ -34,21 +34,24 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     i += 1;
     state = states[i]
     if (state == states[1] ){
+        // Выбор направления
         winOne.classList.add('none')
         winTwo.classList.remove('none')
         tg.MainButton.hide();
         document.querySelectorAll('.winTwoBox').forEach((btn) => {
             btn.addEventListener('click', setPoints)
           })
-        
     }
     else if (state == states[2]){
+        // Выбор Упражнения
         winTwo.classList.add('none')
         winThree.classList.remove('none')
     } else if (state == states[3]){
+        // Упражнения
         winThree.classList.add('none')
         ex.classList.remove('none')
     } else if (state == states[4]){
+        // Финал
         showMainButton('Забрать скидку')
         ex.classList.add('none')
         winEnd.classList.remove('none')
