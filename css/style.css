@@ -1,4 +1,194 @@
+/* 
+
+var(--tg-theme-bg-color)
+var(--tg-theme-text-color)
+var(--tg-theme-hint-color)
+var(--tg-theme-link-color)
+var(--tg-theme-button-color)
+var(--tg-theme-button-text-color)
+ */
+
+
+
 body {
+    width: 359px;
+    padding: 35px 55px 20px;
+    position: relative;
+    font-family: 'TT Hoves';
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+}
+button {
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    cursor: pointer;
+}
+h2 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0;
+    margin-bottom: 35px;
+}
+
+.startTextImgSl img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: -10px;
+}
+
+.logoImg {
+    width: 114px;
+    height: 17px;
+    margin-bottom: 37px;
+}
+
+.userBlockName {
+    position: absolute;
+    top: 34px;
+    right: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-right: 20px;
+}
+.bigImg {
+    width: 247px;
+    height: 171px;
+}
+
+/* window2 */
+
+.winTwoFlex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.winTwoBox {
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px ;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 1em;
+    
+}
+
+.winTwoBox img{
+    width: 36px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.winTwoBox span{
+
+}
+
+/* wimdow3 */
+.winMain p{
+    margin: 0;
+}
+.winMain h2 {
+    margin: 0;
+}
+.completeProgressMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.progressMain {
+    font-size: 20px;
+    line-height: 24px;  
+    padding: 10px 17px;
+    border: 2px solid black;
+    border-radius: 1em;
+}
+.infoMain {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.btnMainOrder {
+    display: flex;
+    gap: 3px;
+}
+.btnMainOrder button{
+    width: 100%;
+    height: 39px;
+    border-radius: 1em;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: 0;
+    border: 2px solid #3274FF;
+}
+.btnMainOrder button a{
+    text-decoration: none;
+    text-transform: none;
+    color: var(--tg-theme-text-color);
+}
+.activeBar {
+    background-color: #3274FF;
+}
+
+
+/* exOne */
+
+.exOne button {
+    height: 8px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+.exOne p{
+    margin: 0;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid grey;
+    padding: 2px 5px;
+}
+
+/* .exTwo  */
+.exThreeeAnswers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.exThreeeAnswers button {
+    width: 280px;
+    height: 48px;
+    text-align: left;
+    padding-left: 10px;
+    border-radius: 1em;
+    margin: 0 auto;
+}
+
+.exThreeeAnswers.three {
+    font-weight: 400;
+    font-size: 75.6364px;
+    line-height: 150%;
+}
+
+/* body {
     margin: 0;
     padding: 0;
     font-size: 18px;
@@ -43,4 +233,4 @@ body {
 
 .usercard {
     text-align: center;
-}
+} */
