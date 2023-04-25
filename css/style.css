@@ -152,6 +152,12 @@ p {
 .none {
     display: none;
 }
+.activeBar {
+    background-color: #3274FF;
+}
+.passiveBar {
+    background-color: #78BAF5;
+}
 .btnMainOrder button{
     width: 65px;
     height: 35px;
@@ -163,7 +169,6 @@ p {
     text-decoration: none;
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
-    background: #78BAF5;
 }
 .btnMainOrder a{
     margin-top: 8px;
@@ -177,10 +182,7 @@ p {
     text-decoration: none;
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
-    background: #78BAF5;
-}
-.activeBar {
-    background: #3274FF;
+    background-color: #78BAF5;
 }
 
 /* exOne */
