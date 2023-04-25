@@ -13,8 +13,38 @@ let states = [
     'final'
 ]
 
-// let state = states[0]
+let winOne = document.querySelector('windowDivOne')
+let winTwo = document.querySelector('windowDivTwo')
+let winThree = document.querySelector('windowDivThree')
+let ex = document.querySelector('exercises')
+let winEnd = document.querySelector('windowDivEnd')
 
+winOne = states[0]
+winTwo = states[1]
+winThree = states[2]
+ex = states[3]
+winEnd = states[4]
+
+
+
+let i = 0
+let state = states[i]
+Telegram.WebApp.onEvent ('mainButtonClicked', function(){
+    i += 1;
+    state = states[i]
+    if (state == states[1]){
+        winOne.classList.add('none')
+        winTwo.classList.remove('none')
+    }
+    // states[i].classList.remove('none')
+    // states[i - 1].classList.add('none')
+    tg.MainButton.setText(text);
+    tg.MainButton.show();
+    console.log(state)
+})
+
+// let state = states[0]
+// tg.MainButton.hide()
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
 
@@ -29,6 +59,42 @@ function closeMainButton() {
 
 showMainButton('Далее')
 
+
+
+   
+
+if (window.onblur = function (){document.title = 'Наши направления!'}) {
+    tg.MainButton.setText('Далее');
+        tg.MainButton.show();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let usercard = document.getElementById('usercard')
+
+// let p = document.createElement('p')
+
+// p.innerText = `${tg.initDataUnsafe.user.First_name}`
+
+// usercard.appendChild(p)
+
+
+
+
+
+// let item = "";
 
 
 // if (window.onblur = function (){document.title = 'Первые добровольцы!'}) {
@@ -51,31 +117,6 @@ showMainButton('Далее')
     //     } 
     
 
-let i = 0
-let state = states[i]
-Telegram.WebApp.onEvent ('mainButtonClicked', function(){
-    // tg.sendData(item)
-    console.log(state);
-    if (state == states[i]) {
-        state = states[1]
-    }
-    console.log(state)
-})
-    
-// let usercard = document.getElementById('usercard')
-
-// let p = document.createElement('p')
-    
-    // p.innerText = `${tg.initDataUnsafe.user.First_name}`
-    
-// usercard.appendChild(p)
-
-
-
-
-
-// let item = "";
-
 // let btn1 = document.getElementById('btn1')
 // let btn2 = document.getElementById('btn2')
 // let btn3 = document.getElementById('btn3')
@@ -84,8 +125,8 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
 // let btn6 = document.getElementById('btn6')
 
 // btn1.addEventListener('click', function(){
-//     if (tg.MainButton.isVisible) {
-//         tg.MainButton.hide();
+    //     if (tg.MainButton.isVisible) {
+        //         tg.MainButton.hide();
 //     }
 //     else {
 //         tg.MainButton.setText('Вы выбрали товар 1!');
