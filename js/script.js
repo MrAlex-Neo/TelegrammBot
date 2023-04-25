@@ -27,47 +27,15 @@ function setPoints(){
     showMainButton('Далее')
 }
 
-var a = ''
-let i = 0
-let state = states[i]
-Telegram.WebApp.onEvent ('mainButtonClicked', function(){
-    i += 1;
-    state = states[i]
-    if (state == states[1] ){
-        // Выбор направления
-        winOne.classList.add('none')
-        winTwo.classList.remove('none')
-        tg.MainButton.hide();
-        document.querySelectorAll('.winTwoBox').forEach((btn) => {
-            btn.addEventListener('click', setPoints)
-          })
-    }
-    else if (state == states[2]){
-        // Выбор Упражнения
-        winTwo.classList.add('none')
-        winThree.classList.remove('none')
-    } else if (state == states[3]){
-        // Упражнения
-        winThree.classList.add('none')
-        ex.classList.remove('none')
-    } else if (state == states[4]){
-        // Финал
-        showMainButton('Забрать скидку')
-        ex.classList.add('none')
-        winEnd.classList.remove('none')
-        state = states[2]
-    }
-    // states[i].classList.remove('none')
-    // states[i - 1].classList.add('none')
-    tg.MainButton.setText(text);
-    tg.MainButton.show();
-    console.log(state)
-})
+function showScreen(elem) {
+    winOne.classList.add('none')
+    winTwo.classList.add('none')
+    winThree.classList.add('none')
+    ex.classList.add('none')
+    winEnd.classList.add('none')
 
-// let state = states[0]
-// tg.MainButton.hide()
-username.innerHTML = tg.initDataUnsafe.user.first_name
-
+    elem.classList.remove('none')
+}
 
 function showMainButton(text) {
     tg.MainButton.setText(text);
@@ -78,7 +46,43 @@ function closeMainButton() {
 
 }
 
-showMainButton('Далее')
+username.innerHTML = tg.initDataUnsafe.user.first_name
+
+var a = ''
+let i = 0
+let state = states[i]
+Telegram.WebApp.onEvent ('mainButtonClicked', function(){
+    i += 1;
+    state = states[i]
+    if (state == states[1] ){
+        // Выбор направления
+        showScreen(winTwo)
+        tg.MainButton.hide();
+        document.querySelectorAll('.winTwoBox').forEach((btn) => {
+            btn.addEventListener('click', setPoints)
+          })
+    }
+    else if (state == states[2]){
+        // Выбор Упражнения
+        showScreen(winThree)
+    } else if (state == states[3]){
+        // Упражнения
+        showScreen(ex)
+    } else if (state == states[4]){
+        // Финал
+        showScreen(winEnd)
+        showMainButton('Забрать скидку')
+        // Веб апп закрывается, отправляются данные в бот
+    }
+    showMainButton('Далее')
+    console.log(state)
+})
+
+// let state = states[0]
+// tg.MainButton.hide()
+
+
+
 
 
 
