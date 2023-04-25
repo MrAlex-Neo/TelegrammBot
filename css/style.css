@@ -62,7 +62,11 @@ p {
 .bigImg {
     width: 247px;
     height: 171px;
-    margin: 0 auto;
+}
+.bigImgImgImgImgImg {
+    display: flex;
+    justify-content: center;
+
 }
 .win_One {
     width: 90vw;
