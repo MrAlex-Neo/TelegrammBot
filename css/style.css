@@ -205,6 +205,11 @@ input{
     border: none;
     border-bottom: 2px solid grey;
     padding: 2px 5px;
+
+}
+input:active, input:hover, input:focus {
+    outline: 0;
+    outline-offset: 0;
 }
 
 /* .exTwo  */
