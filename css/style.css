@@ -62,8 +62,12 @@ p {
 .bigImg {
     width: 247px;
     height: 171px;
+    margin: 0 auto;
 }
-
+.win_One {
+    width: 90vw;
+    margin: 0 auto;
+}
 /* window2 */
 
 .winTwoFlex {

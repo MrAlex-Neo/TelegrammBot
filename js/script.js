@@ -40,7 +40,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     } else if (state == states[4]){
         ex.classList.add('none')
         winEnd.classList.remove('none')
-    }
+    } 
     // states[i].classList.remove('none')
     // states[i - 1].classList.add('none')
     tg.MainButton.setText(text);
