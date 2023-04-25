@@ -27,7 +27,7 @@ function setPoints(){
     showMainButton('Далее')
 }
 
-
+var a = ''
 let i = 0
 let state = states[i]
 Telegram.WebApp.onEvent ('mainButtonClicked', function(){
@@ -37,7 +37,6 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         winOne.classList.add('none')
         winTwo.classList.remove('none')
         tg.MainButton.hide()
-        let a = ''
         document.querySelectorAll('.winTwoBox').forEach( btn => {
             btn.addEventListener('click', setPoints)
           })
