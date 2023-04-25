@@ -52,7 +52,6 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         showMainButton('Забрать скидку')
         ex.classList.add('none')
         winEnd.classList.remove('none')
-        state = states[2]
     }
     // states[i].classList.remove('none')
     // states[i - 1].classList.add('none')
