@@ -30,11 +30,11 @@ function setPoints(){
     })
     if (userBtn.innerText == 'Маркетинг') {
         document.querySelector('.winTwoBox.one').classList.add('activeButton')
-      } else if (userBtn.innerText == 'Программирование') {
+    } else if (userBtn.innerText == 'Программирование') {
         document.querySelector('.winTwoBox.two').classList.add('activeButton')
-      } else if (userBtn.innerText == 'Дизайн') {
+    } else if (userBtn.innerText == 'Дизайн') {
         document.querySelector('.winTwoBox.three').classList.add('activeButton')
-      }
+    }
     // Дописать класс active той кнопке, на которую нажал пользователь
 }
 
