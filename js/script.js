@@ -80,10 +80,10 @@ showMainButton('Далее')
 
    
 
-if (window.onblur = function (){document.title = 'Наши направления!'}) {
-    tg.MainButton.setText('Далее');
-        tg.MainButton.show();
-}
+// if (window.onblur = function (){document.title = 'Наши направления!'}) {
+//     tg.MainButton.setText('Далее');
+//         tg.MainButton.show();
+// }
 
 
 
