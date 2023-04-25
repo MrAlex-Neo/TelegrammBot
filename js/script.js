@@ -5,24 +5,49 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
-if (window.onblur = function (){document.title = 'Первые добровольцы!'}) {
-    tg.MainButton.setText('Далее');
-        tg.MainButton.show();
-} // возможно это будет работать. Способ проверить на этой ли странице наш пользователь. Не проверить, так как к ТГ нету доступа
+let states = [
+    'hello',
+    'chooseDirection',
+    'chooseExercise',
+    'exercise',
+    'final'
+]
 
-if (window.onblur = function (){document.title = 'Наши направления!'}) {
-    tg.MainButton.setText('Далее');
-        tg.MainButton.show();
-} // возможно это будет работать. Способ проверить на этой ли странице наш пользователь. Не проверить, так как к ТГ нету доступа
+let state = 'hello'
 
-tg.MainButton.css({
-    "width": "100%",
-    });
 
-if (window.onblur = function (){document.title = 'Удачки в прокачке!'}) {
-        tg.MainButton.setText('Завершить');
-            tg.MainButton.show();
-    } 
+
+function showMainButton(text, params) {
+    tg.MainButton.setText(text);
+    tg.MainButton.show();
+}
+
+function closeMainButton() {
+
+}
+
+showMainButton('Далее', {"data-state": "hello"})
+
+
+
+// if (window.onblur = function (){document.title = 'Первые добровольцы!'}) {
+//     tg.MainButton.setText('Далее');
+//         tg.MainButton.show();
+// } // возможно это будет работать. Способ проверить на этой ли странице наш пользователь. Не проверить, так как к ТГ нету доступа
+
+// if (window.onblur = function (){document.title = 'Наши направления!'}) {
+//     tg.MainButton.setText('Далее');
+//         tg.MainButton.show();
+// } // возможно это будет работать. Способ проверить на этой ли странице наш пользователь. Не проверить, так как к ТГ нету доступа
+
+// tg.MainButton.css({
+//     "width": "100%",
+//     });
+
+// if (window.onblur = function (){document.title = 'Удачки в прокачке!'}) {
+//         tg.MainButton.setText('Завершить');
+//             tg.MainButton.show();
+//     } 
 
 
 
@@ -32,8 +57,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
 })
     
 let usercard = document.getElementById('usercard')
+username.innerHTML = tg.initDataUnsafe.user.first_name
 
-let p = document.createElement('p')
+// let p = document.createElement('p')
     
     // p.innerText = `${tg.initDataUnsafe.user.First_name}`
     
