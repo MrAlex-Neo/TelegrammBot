@@ -21,7 +21,7 @@ let winEnd = document.querySelector('.windowDivEnd')
 
 function setPoints(a){
     let userBtn = event.target
-    a += userBtn.innerHTML 
+    a = userBtn.innerHTML 
     tg.MainButton.setText(text);
     tg.MainButton.show()
 }
@@ -37,7 +37,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         winTwo.classList.remove('none')
         tg.MainButton.hide()
         let a = ''
-        document.querySelectorAll('.winTwoBox span').forEach( btn => {
+        document.querySelectorAll('.winTwoBox').forEach( btn => {
             btn.addEventListener('click', setPoints(a))
           })
         console.log(a)
