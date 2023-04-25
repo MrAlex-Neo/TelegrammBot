@@ -56,16 +56,16 @@ username.innerHTML = tg.initDataUnsafe.user.first_name
 
 let i = 0
 let state
-if(getCookie('category_id') != undefined) {
-    // Экран упражнений
-    console.log(" ятут")
-    i = 2
-    state == states[3]
-    showScreen(winThree)
-} else {
-    state = states[i]
-    showMainButton('Далее')
-}
+// if(getCookie('category_id') != undefined) {
+//     // Экран упражнений
+//     console.log(" ятут")
+//     i = 2
+//     state == states[3]
+//     showScreen(winThree)
+// } else {
+//     state = states[i]
+//     showMainButton('Далее')
+// }
 
 Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
