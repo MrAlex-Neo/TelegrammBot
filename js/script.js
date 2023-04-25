@@ -21,7 +21,6 @@ let winEnd = document.querySelector('.windowDivEnd')
 
 
 
-winOne.classList.add('none')
 
 let i = 0
 let state = states[i]
