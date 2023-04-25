@@ -19,7 +19,11 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-
+function setPoints(){
+    let userBtn = event.target
+    a += userBtn.innerText 
+    tg.MainButton.show()
+}
 
 
 let i = 0
@@ -30,6 +34,11 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     if (state == states[1]){
         winOne.classList.add('none')
         winTwo.classList.remove('none')
+        tg.MainButton.hide()
+        let a = ''
+        document.querySelectorAll('.winTwoBox span').forEach( btn => {
+            btn.addEventListener('click', setPoints)
+          })
     }
     else if (state == states[2]){
         winTwo.classList.add('none')
