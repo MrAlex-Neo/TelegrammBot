@@ -27,13 +27,13 @@ if (window.onblur = function (){document.title = 'Удачки в прокачк
 
 
     
-    Telegram.WebApp.onEvent ('mainButtonClicked', function(){
-        tg.sendData(item)
-    })
+Telegram.WebApp.onEvent ('mainButtonClicked', function(){
+    // tg.sendData(item)
+})
     
-    let usercard = document.getElementById('usercard')
-    
-    let p = document.createElement('p')
+let usercard = document.getElementById('usercard')
+
+let p = document.createElement('p')
     
     // p.innerText = `${tg.initDataUnsafe.user.First_name}`
     
