@@ -125,16 +125,14 @@ p {
     display: flex;
     gap: 3px;
 }
-.btnMainOrder button{
+.btnMainOrder a{
     width: 100%;
-    height: 39px;
+    height: 8px;
     border-radius: 1em;
     cursor: pointer;
     text-decoration: none;
     text-transform: 0;
     border: 2px solid #3274FF;
-}
-.btnMainOrder button a{
     text-decoration: none;
     text-transform: none;
     color: var(--tg-theme-text-color);
@@ -183,10 +181,58 @@ input{
 }
 
 .exThreeeAnswers.three {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    
+}
+.exThreeeAnswers.three button {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    margin: 0;
+    text-align: center;
     font-weight: 400;
     font-size: 75.6364px;
     line-height: 150%;
+    text-transform: uppercase;
 }
+
+.exFoutCheckNumb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.exThreeeAnswers.four{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+.exThreeeAnswers.four button{
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    border-radius: 10px;
+}
+
+.boxFive img{
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    border: 1px solid grey;
+    padding: 13px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
 
 /* body {
     margin: 0;
