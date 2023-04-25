@@ -31,6 +31,16 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         winOne.classList.add('none')
         winTwo.classList.remove('none')
     }
+    else if (state == states[2]){
+        winTwo.classList.add('none')
+        winThree.classList.remove('none')
+    } else if (state == states[3]){
+        winThree.classList.add('none')
+        ex.classList.remove('none')
+    } else if (state == states[4]){
+        ex.classList.add('none')
+        winEnd.classList.remove('none')
+    }
     // states[i].classList.remove('none')
     // states[i - 1].classList.add('none')
     tg.MainButton.setText(text);
