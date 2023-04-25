@@ -72,7 +72,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         // Финал
         showScreen(winEnd)
         showMainButton('Забрать скидку')
-        // Веб апп закрывается, отправляются данные в бот
+        ex.classList.add('none')
+        winEnd.classList.remove('none')
+        state = states[2]
     }
     showMainButton('Далее')
     console.log(state)

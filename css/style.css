@@ -88,6 +88,10 @@ p {
     align-items: center;
     gap: 20px;
     border-radius: 1em;
+    border-color: #AEB4C2;
+    background-color: #ffffff;
+    color: #333333;
+    
     
 }
 
@@ -99,9 +103,7 @@ p {
     line-height: 24px;
 }
 
-/* .winTwoBox span{
 
-} */
 
 /* wimdow3 */
 .winMain p{
