@@ -25,6 +25,8 @@ function setPoints(){
     a = userBtn.getAttribute('data-categoryID') 
     console.log(a)
     showMainButton('Далее')
+
+    // Дописать класс active той кнопке, на которую нажал пользователь
 }
 
 function showScreen(elem) {
@@ -59,9 +61,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         // Выбор направления
         showScreen(winTwo)
         tg.MainButton.hide();
-        document.querySelectorAll('.winTwoBox').forEach((btn) => {
-            btn.addEventListener('click', setPoints)
-          })
+        // document.querySelectorAll('.winTwoBox').forEach((btn) => {
+        //     btn.addEventListener('click', setPoints)
+        //   })
     }
     else if (state == states[2]){
         // Выбор Упражнения
