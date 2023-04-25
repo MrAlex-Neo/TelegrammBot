@@ -25,14 +25,14 @@ function setPoints(){
     a = userBtn.getAttribute('data-categoryID') 
     console.log(a)
     showMainButton('Далее')
-    if (userBtn.innerHTML == 'Маркетинг') {
-        document.querySelectorAll('.winTwoBox').classList.remove('activeButton')
+    document.querySelectorAll('.winTwoBox').forEach( btn => {
+        btn.classList.remove('activeButton')
+    })
+    if (userBtn.innerText == 'Маркетинг') {
         document.querySelector('.winTwoBox.one').classList.add('activeButton')
-      } else if (userBtn.innerHTML == 'Программирование') {
-        document.querySelectorAll('.winTwoBox').classList.remove('activeButton')
+      } else if (userBtn.innerText == 'Программирование') {
         document.querySelector('.winTwoBox.two').classList.add('activeButton')
-      } else if (userBtn.innerHTML == 'Дизайн') {
-        document.querySelectorAll('.winTwoBox').classList.remove('activeButton')
+      } else if (userBtn.innerText == 'Дизайн') {
         document.querySelector('.winTwoBox.three').classList.add('activeButton')
       }
     // Дописать класс active той кнопке, на которую нажал пользователь
