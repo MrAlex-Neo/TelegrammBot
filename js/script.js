@@ -33,7 +33,7 @@ let state = states[i]
 Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     i += 1;
     state = states[i]
-    if (state == states[1]){
+    if (state == states[1] ){
         winOne.classList.add('none')
         winTwo.classList.remove('none')
         tg.MainButton.hide();
@@ -52,7 +52,8 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function(){
         showMainButton('Забрать скидку')
         ex.classList.add('none')
         winEnd.classList.remove('none')
-    } 
+        state = states[2]
+    }
     // states[i].classList.remove('none')
     // states[i - 1].classList.add('none')
     tg.MainButton.setText(text);
