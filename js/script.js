@@ -17,7 +17,7 @@ let state = 'hello'
 
 
 
-function showMainButton(text, params) {
+function showMainButton(text) {
     tg.MainButton.setText(text);
     tg.MainButton.show();
 }
@@ -54,6 +54,7 @@ showMainButton('Далее', {"data-state": "hello"})
     
 Telegram.WebApp.onEvent ('mainButtonClicked', function(){
     // tg.sendData(item)
+    console.log(state)
 })
     
 let usercard = document.getElementById('usercard')
