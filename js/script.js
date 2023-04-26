@@ -21,42 +21,50 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-let exOne = document.querySelector('.ex.OneEx')
-let exTwo = document.querySelector('.ex.TwoEx')
-let exThree = document.querySelector('.ex.ThreeEx')
-let exFour = document.querySelector('.ex.FourEx')
-let exFive = document.querySelector('.ex.FiveEx')
+// let exOne = document.querySelector('.ex.OneEx')
+// let exTwo = document.querySelector('.ex.TwoEx')
+// let exThree = document.querySelector('.ex.ThreeEx')
+// let exFour = document.querySelector('.ex.FourEx')
+// let exFive = document.querySelector('.ex.FiveEx')
 
-let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
-    i = 3
-    showScreen(ex)
-    showExercise(exOne)
-    showMainButton('Далее')
-});
-let btnTwo = document.querySelector('.btnTwo').addEventListener('click', function() {
-    i = 4
-    showScreen(ex)
-    showExercise(exTwo)
-    showMainButton('Далее')
-});
-let btnThree = document.querySelector('.btnThree').addEventListener('click', function() {
-    i = 5
-    showScreen(ex)
-    showExercise(exThree)
-    showMainButton('Далее')
-});
-let btnFour = document.querySelector('.btnFour').addEventListener('click', function() {
-    i = 6
-    showScreen(ex)
-    showExercise(exFour)
-    showMainButton('Далее')
-});
-let btnFive = document.querySelector('.btnFive').addEventListener('click', function() {
-    i = 7
-    showScreen(ex)
-    showExercise(exFive)
-    showMainButton('Далее')
-});
+let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
+    exBtn.addEventListener('click', () => {
+        exNum = ind
+        showScreen(ex)
+        showExercise(exNum)
+        showMainButton('Далее')
+    })
+})
+// let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
+//     exNum = 0
+//     showScreen(ex)
+//     showExercise(exNum)
+//     showMainButton('Далее')
+// });
+// let btnTwo = document.querySelector('.btnTwo').addEventListener('click', function() {
+//     i = 4
+//     showScreen(ex)
+//     showExercise(exTwo)
+//     showMainButton('Далее')
+// });
+// let btnThree = document.querySelector('.btnThree').addEventListener('click', function() {
+//     i = 5
+//     showScreen(ex)
+//     showExercise(exThree)
+//     showMainButton('Далее')
+// });
+// let btnFour = document.querySelector('.btnFour').addEventListener('click', function() {
+//     i = 6
+//     showScreen(ex)
+//     showExercise(exFour)
+//     showMainButton('Далее')
+// });
+// let btnFive = document.querySelector('.btnFive').addEventListener('click', function() {
+//     i = 7
+//     showScreen(ex)
+//     showExercise(exFive)
+//     showMainButton('Далее')
+// });
 
 
 function setPoints(categoryId){
@@ -91,8 +99,8 @@ function showMainButton(text) {
 }
 
 function showExercise(ind) {
-    let exs = document.querySelectorAll('.ex').forEach( ex => {
-        ex.classList.add('none')
+    let exs = document.querySelectorAll('.ex').forEach( exercise => {
+        exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
 }
