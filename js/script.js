@@ -134,7 +134,7 @@ if(7 == 5) {
     showMainButton('Далее')
 } else {
     state = states[i]
-    showMainButton('Далее')
+    showMainButton('Готов!')
 }
 
 Telegram.WebApp.onEvent ('mainButtonClicked', function() {
@@ -162,7 +162,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         
         if(exNum == 5) {
             //TODO: возвращать на неотвеченный вопрос 
-            
+
         } else {
             showMainButton(`Перейти к упражнению ${exNum+1}`)
         }
