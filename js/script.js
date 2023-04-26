@@ -157,9 +157,9 @@ async function sendRequest(url, method, data) {
 
 function renderQuestions() {
     let exs = document.querySelectorAll('.ex')
-    questions.forEach( q => {
-        exs.querySelector('h3').innerHTML = q.question
-        exs.querySelectorAll('.exAnswers button').forEach( a => {
+    questions.forEach( (q, ind) => {
+        exs[ind].querySelector('h3').innerHTML = q.question
+        exs[ind].querySelectorAll('.exAnswers button').forEach( a => {
             a.innerHTML = q.answer
             a.setAttribute('data-answer_id', q.answer_id)
         })
