@@ -152,7 +152,7 @@ function renderQuestions() {
                         //TODO: возвращать на неотвеченный вопрос 
                         showMainButton(`3.. 4... Закончили!`)
                     } else {
-                        exNum = exNum+1
+                        // exNum = exNum+1
                         showMainButton(`Перейти к упражнению ${exNum+1}`)
                     }
                     
@@ -211,6 +211,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
 
         //Показываю запрашиваемое упражнение
         showExercise(exNum)
+        // exNum = exNum+1
 
         
         if(exNum == 4) {
