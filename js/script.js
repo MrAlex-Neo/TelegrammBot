@@ -17,6 +17,7 @@ let states = [
 let i = 0
 let state
 let exNum = 0
+let answer_id = 0
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
@@ -42,10 +43,11 @@ toMainEx.forEach( btn => {
 
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
-        exNum = ind
+        answer_id = exBtn.getAttribute('data-answer_id')
+        // exNum = ind
         showScreen(ex)
-        showExercise(exNum)
-        showMainButton('Далее')
+        // showExercise(exNum)
+        showMainButton(`Перейти к упражнению ${exNum+1}`)
     })
 })
 // let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
