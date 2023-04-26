@@ -17,6 +17,8 @@ let states = [
 let i = 0
 let state
 let exNum = 0
+let category_id = getCookie('category_id') || 1
+let questions = {} 
 
 
 let winOne = document.querySelector('.windowDivOne')
@@ -95,6 +97,7 @@ function setPoints(categoryId){
         document.querySelector('.winTwoBox.three').classList.add('activeButton')
     }
     // Записать categoryId в кукис
+    category_id = categoryId
     setCookie('category_id', categoryId)
 }
 
@@ -121,6 +124,35 @@ function showExercise(ind) {
     exs[ind].classList.remove('none')
 }
 
+async function sendRequest(url, method, data) {
+    url = `https://p-api2.tehnikum.school/api/${url}`
+    
+    if(method == "POST") {
+        let response = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+    
+        response = await response.json()
+        return response
+    } else if(method == "GET") {
+        url = url+"?"+ new URLSearchParams(data)
+        let response = await fetch(url, {
+            method: "GET",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        response = await response.json()
+        return response
+    }
+}
+
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
@@ -137,7 +169,7 @@ if(7 == 5) {
     showMainButton('Готов!')
 }
 
-Telegram.WebApp.onEvent ('mainButtonClicked', function() {
+Telegram.WebApp.onEvent('mainButtonClicked', function() {
     i += 1;
     state = states[i]
     
@@ -151,9 +183,18 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     }
     else if (state == states[2]){
         // Выбор Упражнения
-        showScreen(winThree)
+        category_id = getCookie('category_id') || category_id
 
-        showMainButton(`Перейти к упражнению ${exNum+1}`)
+        sendRequest('quizzes', "GET", {category_id})
+        .then((response) => {
+            console.log(response) 
+            questions = response[0].questions
+            setCookie('questions', JSON.stringify(questions))
+            
+            showScreen(winThree)
+            showMainButton(`Перейти к упражнению ${exNum+1}`)
+        })
+        // console.log(response)
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
@@ -215,3 +256,4 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
 
         
 // }
+
