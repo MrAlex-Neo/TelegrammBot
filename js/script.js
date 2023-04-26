@@ -27,6 +27,12 @@ let exThree = document.querySelector('.ex.ThreeEx')
 let exFour = document.querySelector('.ex.FourEx')
 let exFive = document.querySelector('.ex.FiveEx')
 
+let toMainEx = document.querySelectorAll('toExercises')
+toMainEx.forEach( btn => {
+    btn.addEventListener('click', goToMainWindow)
+  })
+
+
 let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
     i = 3
     showScreen(ex)
@@ -59,6 +65,11 @@ let btnFive = document.querySelector('.btnFive').addEventListener('click', funct
 });
 
 
+function goToMainWindow() {
+    showScreen(winThree)
+    i = 2
+    showMainButton('Далее')
+}
 function setPoints(categoryId){
     showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
