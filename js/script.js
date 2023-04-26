@@ -17,7 +17,7 @@ let states = [
 let user_id = 1918321
 
 let i = 0
-let state = 'chooseDirection'
+let state
 let exNum = 0
 let answer_id = 0
 let category_id = getCookie('category_id') || 1
@@ -182,7 +182,7 @@ if(7 == 5) {
     showScreen(winThree)
     showMainButton('Далее')
 } else {
-    state = states[i]
+    state = 'chooseDirection'
     showMainButton('Готов!')
 }
 
