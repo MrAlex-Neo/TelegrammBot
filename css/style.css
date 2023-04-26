@@ -186,7 +186,7 @@ p {
     /* color: var(--tg-theme-text-color); */
 }
 .btnMainOrder button:hover {
-    background-color: yellow; 
+    background-color: #78BAF5; 
     color: black; 
     border: 2px solid #008CBA;
 }
