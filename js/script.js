@@ -13,8 +13,8 @@ let states = [
     'final'
 ]
 
-let user_id = tg.initDataUnsafe.user.id
-// let user_id = 1918321
+// let user_id = tg.initDataUnsafe.user.id
+let user_id = 1918321
 
 let i = 0
 let state
@@ -143,10 +143,13 @@ function renderQuestions() {
 
                     if(response.is_correct) {
                         a.classList.add('trueBar')
+                        a.classList.remove('emptyBar')
                     } else {
                         a.classList.add('wrongBar')
+                        a.classList.remove('emptyBar')
                         let correct_answer = response.answer_id
                         document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                        document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                     }
                     if(exNum == 4) {
                         //TODO: возвращать на неотвеченный вопрос 
