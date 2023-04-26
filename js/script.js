@@ -27,7 +27,7 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-let exOne = document.querySelector('.ex.OneEx"')
+let exOne = document.querySelector('.ex.OneEx')
 let exTwo = document.querySelector('.ex.TwoEx')
 let exThree = document.querySelector('.ex.ThreeEx')
 let exFour = document.querySelector('.ex.FourEx')
