@@ -170,6 +170,11 @@ p {
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
 }
+.btnMainOrder button:hover {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
 .btnMainOrder a{
     margin-top: 8px;
     width: 100%;
