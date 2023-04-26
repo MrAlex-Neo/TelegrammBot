@@ -31,7 +31,7 @@ let winEnd = document.querySelector('.windowDivEnd')
 // let exFour = document.querySelector('.ex.FourEx')
 // let exFive = document.querySelector('.ex.FiveEx')
 
-let toMainEx = document.querySelectorAll('toExercises')
+let toMainEx = document.querySelectorAll('.toExercises')
 toMainEx.forEach( btn => {
     btn.addEventListener('click', goToMainWindow)
   })
@@ -81,6 +81,7 @@ function goToMainWindow() {
     i = 2
     showMainButton('Далее')
 }
+
 function setPoints(categoryId){
     showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
@@ -113,7 +114,8 @@ function showMainButton(text) {
 }
 
 function showExercise(ind) {
-    let exs = document.querySelectorAll('.ex').forEach( exercise => {
+    let exs = document.querySelectorAll('.ex')
+    exs.forEach( exercise => {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
