@@ -158,14 +158,17 @@ p {
 .trueBar {
     background-color: #3274FF;
     border: 2px solid #3274FF;
+    color: #FFFFFF;
 }
 .wrongBar {
     background-color: #FD4E5D;
     border: 2px solid #FD4E5D;
+    color: #FFFFFF;
 }
 .activeBar {
     background-color: #78BAF5;
     border: 2px solid #78BAF5;
+    color: #FFFFFF;
 }
 .emptyBar {
     background-color: #FFFFFF;
@@ -183,6 +186,9 @@ p {
     text-transform: 0;
     text-decoration: none;
     text-transform: none;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
     /* color: var(--tg-theme-text-color); */
 }
 .btnMainOrder button:hover {
