@@ -42,6 +42,7 @@ toMainEx.forEach( btn => {
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
         exNum = ind
+        console.log(`exsButtons new exNum=${exNum}`)
         showScreen(ex)
         showExercise(exNum)
         state == 'exercises'
@@ -98,6 +99,7 @@ function showExercise(ind) {
     exs[ind].classList.remove('none')
     if(answered) {
         exNum = exNum+1
+        console.log(`showExercise new exNum=${exNum}`)
         showMainButton(`Перейти к упражнению ${exNum+1}`)
     }
 }
@@ -168,6 +170,7 @@ function renderQuestions() {
                             showMainButton(`3.. 4... Закончили!`)
                         } else {
                             exNum = exNum+1
+                            console.log(`renderQuestions new exNum=${exNum}`)
                             showMainButton(`Перейти к упражнению ${exNum+1}`)
                         }
                     })
@@ -204,6 +207,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // Выбор Упражнения
         category_id = getCookie('category_id') || category_id
         exNum = 0
+        console.log(`chooseExercise new exNum=${exNum}`)
         sendRequest('quizzes', "GET", {category_id})
         .then((response) => {
             console.log(response) 
