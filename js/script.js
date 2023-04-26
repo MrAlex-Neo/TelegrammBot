@@ -13,8 +13,8 @@ let states = [
     'final'
 ]
 
-// let user_id = tg.initDataUnsafe.chat.id
-let user_id = 1918321
+let user_id = tg.initDataUnsafe.chat.id
+// let user_id = 1918321
 
 let i = 0
 let state
@@ -23,7 +23,8 @@ let answer_id = 0
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
-    console.log('renderQuestions')
+    // console.log('renderQuestions')
+    renderQuestions()
 }
 
 let winOne = document.querySelector('.windowDivOne')
@@ -53,7 +54,6 @@ function goToMainWindow() {
 }
 
 function setPoints(categoryId){
-    showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
         btn.classList.remove('activeButton')
     })
@@ -67,6 +67,7 @@ function setPoints(categoryId){
     // Записать categoryId в кукис
     category_id = categoryId
     setCookie('category_id', categoryId)
+    showMainButton('Далее')
 }
 
 function showScreen(elem) {
@@ -140,7 +141,6 @@ function renderQuestions() {
                 .then((response) => {
                     console.log(response)
 
-                    let btnClass = response.is_correct ? 'trueBar' : 'wrongBar'
                     if(response.is_correct) {
                         a.classList.add('trueBar')
                     } else {
@@ -210,8 +210,8 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         })
     } else if (state == states[3]){
         // Упражнения
+        renderQuestions()
         showScreen(ex)
-        
         //Генерирую запрашиваемое упражнение
         showExercise(exNum)
 
