@@ -113,7 +113,8 @@ function showMainButton(text) {
 }
 
 function showExercise(ind) {
-    let exs = document.querySelectorAll('.ex').forEach( exercise => {
+    let exs = document.querySelectorAll('.ex')
+    exs.forEach( exercise => {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
