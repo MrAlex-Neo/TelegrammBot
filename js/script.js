@@ -188,7 +188,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     } else if (state == states[8]){
         // Финал
         showScreen(winEnd)
-        i = 2
+        i = 1
         showMainButton('Забрать скидку')
     }
 })
