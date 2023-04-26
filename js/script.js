@@ -141,7 +141,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
     state = states[i]
     
-    console.log(state)
+    console.log({
+        state, i, exNum
+    })
     if (state == states[1] ){
         // Выбор направления
         showScreen(winTwo)
