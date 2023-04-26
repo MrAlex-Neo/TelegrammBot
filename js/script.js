@@ -78,6 +78,9 @@ function showScreen(elem) {
     winEnd.classList.add('none')
 
     elem.classList.remove('none')
+    if(ex) {
+        tg.MainButton.hide();
+    }
 }
 
 function showMainButton(text) {
