@@ -44,6 +44,7 @@ toMainEx.forEach( btn => {
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
         answer_id = exBtn.getAttribute('data-answer_id')
+        console.log(answer_id)
         // exNum = ind
         showScreen(ex)
         // showExercise(exNum)
