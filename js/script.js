@@ -180,38 +180,38 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
 
 // Кажется нам это не пригодится:
 
-var imageLoader = document.getElementById('file');
-    imageLoader.addEventListener('change', handleImage, false);
-let canvas = document.querySelectorAll('.thumbnail');
+// var imageLoader = document.getElementById('file');
+//     imageLoader.addEventListener('change', handleImage, false);
+// let canvas = document.querySelectorAll('.thumbnail');
 
 
-function handleImage(e){
-    // console.log(e)
-    for(let i = 0; i < e.target.files.length;i++) {
-        let ctx = canvas[i].getContext('2d');
-        let reader = new FileReader();
-        reader.onload = function(event){
-            let img = new Image();
-            img.onload = function(){
-                canvas.width = '62';
-                canvas.height = '62';
+// function handleImage(e){
+//     // console.log(e)
+//     for(let i = 0; i < e.target.files.length;i++) {
+//         let ctx = canvas[i].getContext('2d');
+//         let reader = new FileReader();
+//         reader.onload = function(event){
+//             let img = new Image();
+//             img.onload = function(){
+//                 canvas.width = '62';
+//                 canvas.height = '62';
 
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+//                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                let scale_factor = Math.min(canvas.width / img.width, canvas.height / img.height);
+//                 let scale_factor = Math.min(canvas.width / img.width, canvas.height / img.height);
                 
-                let newWidth = img.width * scale_factor;
-                let newHeight = img.height * scale_factor;
+//                 let newWidth = img.width * scale_factor;
+//                 let newHeight = img.height * scale_factor;
                     
-                let x = (canvas.width / 2) - (newWidth / 2);
-                let y = (canvas.height / 2) - (newHeight / 2);
+//                 let x = (canvas.width / 2) - (newWidth / 2);
+//                 let y = (canvas.height / 2) - (newHeight / 2);
 
-                ctx.drawImage(img, x, y, newWidth, newHeight);
-            }
-            img.src = event.target.result;
-        }
-        reader.readAsDataURL(e.target.files[i]); 
-    }
+//                 ctx.drawImage(img, x, y, newWidth, newHeight);
+//             }
+//             img.src = event.target.result;
+//         }
+//         reader.readAsDataURL(e.target.files[i]); 
+//     }
 
         
-}
+// }
