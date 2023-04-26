@@ -13,12 +13,25 @@ let states = [
     'exercise',
     'final'
 ]
+let exers = [
+    'one',
+    'two',
+    'three',
+    'four',
+    'five'
+]
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
 let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
+
+let exOne = document.querySelector('.ex.OneEx"')
+let exTwo = document.querySelector('.ex.TwoEx')
+let exThree = document.querySelector('.ex.ThreeEx')
+let exFour = document.querySelector('.ex.FourEx')
+let exFive = document.querySelector('.ex.FiveEx')
 
 function setPoints(categoryId){
     showMainButton('Далее')
@@ -56,6 +69,8 @@ username.innerHTML = tg.initDataUnsafe.user.first_name
 
 let i = 0
 let state
+let u = 0
+let exer
 // if(getCookie('category_id') != undefined) {
 if(7 == 5) {
     // Экран упражнений
@@ -71,7 +86,8 @@ if(7 == 5) {
 Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
     state = states[i]
-
+    u += 1;
+    exer = exers[u]
     console.log(state)
     if (state == states[1] ){
         // Выбор направления
@@ -84,18 +100,17 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
 
         // удалить после тестов:
         showMainButton('Далее')
-    } else if (state == states[3]){
+    } else if (state == states[3] && exer == exers[0]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
-
+        
         // удалить после тестов:
         showMainButton('Далее')
-    } else if (state == states[4]){
+    } else if (7 == 5){
         // Финал
         showScreen(winEnd)
         showMainButton('Забрать скидку')
-        state = states[2]
     }
 })
 
