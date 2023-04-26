@@ -30,57 +30,10 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-// let exOne = document.querySelector('.ex.OneEx')
-// let exTwo = document.querySelector('.ex.TwoEx')
-// let exThree = document.querySelector('.ex.ThreeEx')
-// let exFour = document.querySelector('.ex.FourEx')
-// let exFive = document.querySelector('.ex.FiveEx')
-
 let toMainEx = document.querySelectorAll('.toExercises')
 toMainEx.forEach( btn => {
     btn.addEventListener('click', goToMainWindow)
   })
-
-let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
-    exBtn.addEventListener('click', () => {
-        answer_id = exBtn.getAttribute('data-answer_id')
-        // exNum = ind
-        showScreen(ex)
-        // showExercise(exNum)
-        showMainButton(`Перейти к упражнению ${exNum+1}`)
-    })
-})
-// let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
-//     exNum = 0
-//     showScreen(ex)
-//     showExercise(exNum)
-//     showMainButton('Далее')
-// });
-// let btnTwo = document.querySelector('.btnTwo').addEventListener('click', function() {
-//     i = 4
-//     showScreen(ex)
-//     showExercise(exTwo)
-//     showMainButton('Далее')
-// });
-// let btnThree = document.querySelector('.btnThree').addEventListener('click', function() {
-//     i = 5
-//     showScreen(ex)
-//     showExercise(exThree)
-//     showMainButton('Далее')
-// });
-// let btnFour = document.querySelector('.btnFour').addEventListener('click', function() {
-//     i = 6
-//     showScreen(ex)
-//     showExercise(exFour)
-//     showMainButton('Далее')
-// });
-// let btnFive = document.querySelector('.btnFive').addEventListener('click', function() {
-//     i = 7
-//     showScreen(ex)
-//     showExercise(exFive)
-//     showMainButton('Далее')
-// });
-
 
 function goToMainWindow() {
     showScreen(winThree)
@@ -164,6 +117,17 @@ function renderQuestions() {
         exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
             a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answers[index].answer_id)
+        })
+    })
+
+    let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
+        exBtn.addEventListener('click', () => {
+            answer_id = exBtn.getAttribute('data-answer_id')
+            console.log(answer_id)
+            // exNum = ind
+            showScreen(ex)
+            // showExercise(exNum)
+            showMainButton(`Перейти к упражнению ${exNum+1}`)
         })
     })
 }
