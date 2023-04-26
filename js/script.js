@@ -1,4 +1,3 @@
-
 let tg = window.Telegram.WebApp;
 
 tg.expand();
@@ -14,6 +13,9 @@ let states = [
     'final'
 ]
 
+let user_id = tg.initDataUnsafe.user.id
+// let user_id = 1918321
+
 let i = 0
 let state
 let exNum = 0
@@ -21,7 +23,8 @@ let answer_id = 0
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
-    console.log('renderQuestions')
+    // console.log('renderQuestions')
+    renderQuestions()
 }
 
 let winOne = document.querySelector('.windowDivOne')
@@ -35,6 +38,15 @@ toMainEx.forEach( btn => {
     btn.addEventListener('click', goToMainWindow)
   })
 
+let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
+    exBtn.addEventListener('click', () => {
+        exNum = ind
+        showScreen(ex)
+        showExercise(exNum)
+        // showMainButton(`Перейти к упражнению ${exNum+1}`)
+    })
+})
+
 function goToMainWindow() {
     showScreen(winThree)
     i = 2
@@ -42,7 +54,6 @@ function goToMainWindow() {
 }
 
 function setPoints(categoryId){
-    showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
         btn.classList.remove('activeButton')
     })
@@ -56,6 +67,7 @@ function setPoints(categoryId){
     // Записать categoryId в кукис
     category_id = categoryId
     setCookie('category_id', categoryId)
+    showMainButton('Далее')
 }
 
 function showScreen(elem) {
@@ -114,16 +126,41 @@ function renderQuestions() {
     let exs = document.querySelectorAll('.ex')
     questions.forEach( (q, ind) => {
         exs[ind].querySelector('h3').innerHTML = q.question
+        console.log(q)
         exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
             a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answers[index].answer_id)
-
+            a.setAttribute('data-question_id', q.question_id)
+            
             a.addEventListener('click', () => {
-                answer_id = exBtn.getAttribute('data-answer_id')
-                console.log(answer_id)
-                // exNum = ind
-                showScreen(ex)
-                // showExercise(exNum)
+                // Обработка выбранного пользователем ответа
+                let answer_id = a.getAttribute('data-answer_id')
+                let question_id = a.getAttribute('data-question_id')
+                
+                sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
+                .then((response) => {
+                    console.log(response)
+
+                    if(response.is_correct) {
+                        a.classList.add('trueBar')
+                    } else {
+                        a.classList.add('wrongBar')
+                        let correct_answer = response.answer_id
+                        document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                    }
+                    if(exNum == 5) {
+                        exNum = exNum+1
+                    }
+                    showMainButton(`Перейти к упражнению ${exNum+1}`)
+
+                    
+                    // let answrs = document.querySelectorAll(`.exAnswers button[data-question_id="${question_id}"]`)
+                    
+                    // questions = response[0].questions
+                    // localStorage.setItem('questions', JSON.stringify(questions));
+                    
+                    // showScreen(winThree)
+                })
                 showMainButton(`Перейти к упражнению ${exNum+1}`)
             })
         })
@@ -173,8 +210,8 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         })
     } else if (state == states[3]){
         // Упражнения
+        renderQuestions()
         showScreen(ex)
-        
         //Генерирую запрашиваемое упражнение
         showExercise(exNum)
 
@@ -192,44 +229,3 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         showMainButton('Забрать скидку')
     }
 })
-
-
-
-// Кажется нам это не пригодится:
-
-// var imageLoader = document.getElementById('file');
-//     imageLoader.addEventListener('change', handleImage, false);
-// let canvas = document.querySelectorAll('.thumbnail');
-
-
-// function handleImage(e){
-//     // console.log(e)
-//     for(let i = 0; i < e.target.files.length;i++) {
-//         let ctx = canvas[i].getContext('2d');
-//         let reader = new FileReader();
-//         reader.onload = function(event){
-//             let img = new Image();
-//             img.onload = function(){
-//                 canvas.width = '62';
-//                 canvas.height = '62';
-
-//                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-//                 let scale_factor = Math.min(canvas.width / img.width, canvas.height / img.height);
-                
-//                 let newWidth = img.width * scale_factor;
-//                 let newHeight = img.height * scale_factor;
-                    
-//                 let x = (canvas.width / 2) - (newWidth / 2);
-//                 let y = (canvas.height / 2) - (newHeight / 2);
-
-//                 ctx.drawImage(img, x, y, newWidth, newHeight);
-//             }
-//             img.src = event.target.result;
-//         }
-//         reader.readAsDataURL(e.target.files[i]); 
-//     }
-
-        
-// }
-
