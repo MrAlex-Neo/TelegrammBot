@@ -190,11 +190,11 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
             console.log(response) 
             questions = response[0].questions
             setCookie('questions', JSON.stringify(questions))
+            
+            showScreen(winThree)
+            showMainButton(`Перейти к упражнению ${exNum+1}`)
         })
         // console.log(response)
-        showScreen(winThree)
-
-        showMainButton(`Перейти к упражнению ${exNum+1}`)
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
