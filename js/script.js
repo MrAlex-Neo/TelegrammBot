@@ -37,6 +37,38 @@ let exThree = document.querySelector('.ex.ThreeEx')
 let exFour = document.querySelector('.ex.FourEx')
 let exFive = document.querySelector('.ex.FiveEx')
 
+let btnOne = document.querySelector('.btnOne').addEventListener('click', function() {
+    state = states[3]
+    showScreen(ex)
+    showExercise(exOne)
+    showMainButton('Далее')
+});
+let btnTwo = document.querySelector('.btnTwo').addEventListener('click', function() {
+    state = states[4]
+    showScreen(ex)
+    showExercise(exTwo)
+    showMainButton('Далее')
+});
+let btnThree = document.querySelector('.btnThree').addEventListener('click', function() {
+    state = states[5]
+    showScreen(ex)
+    showExercise(exThree)
+    showMainButton('Далее')
+});
+let btnFour = document.querySelector('.btnFour').addEventListener('click', function() {
+    state = states[6]
+    showScreen(ex)
+    showExercise(exFour)
+    showMainButton('Далее')
+});
+let btnFive = document.querySelector('.btnFive').addEventListener('click', function() {
+    state = states[7]
+    showScreen(ex)
+    showExercise(exFive)
+    showMainButton('Далее')
+});
+
+
 function setPoints(categoryId){
     showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
