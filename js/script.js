@@ -148,7 +148,7 @@ function renderQuestions() {
                 if(!answered) {
                     let answer_id = a.getAttribute('data-answer_id')
                     let question_id = a.getAttribute('data-question_id')
-                    
+                    console.log(a)
                     sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
                     .then((response) => {
                         console.log(response)
