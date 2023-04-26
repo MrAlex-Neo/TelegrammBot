@@ -43,6 +43,7 @@ let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exB
         exNum = ind
         showScreen(ex)
         showExercise(exNum)
+        state == 'exercises'
         // showMainButton(`Перейти к упражнению ${exNum+1}`)
     })
 })
@@ -156,10 +157,11 @@ function renderQuestions() {
                     }
                     if(exNum == 4) {
                         //TODO: возвращать на неотвеченный вопрос 
+                        state == 'final'
                         showMainButton(`3.. 4... Закончили!`)
                     } else {
-                        // exNum = exNum+1
-                        showMainButton(`Перейти к упражнению ${exNum}`)
+                        exNum = exNum+1
+                        showMainButton(`Перейти к упражнению ${exNum+2}`)
                     }
                     
                 })
@@ -180,23 +182,18 @@ if(7 == 5) {
     showScreen(winThree)
     showMainButton('Далее')
 } else {
-    state = states[i]
+    state = 'chooseDirection'
     showMainButton('Готов!')
 }
 
-Telegram.WebApp.onEvent('mainButtonClicked', function() {
-    i += 1;
-    state = states[i]
-    
-    console.log({
-        state, i, exNum
-    })
-    if (state == states[1] ){
+Telegram.WebApp.onEvent('mainButtonClicked', function() {    
+    console.log({state, i, exNum})
+    if (state == 'chooseDirection'){
         // Выбор направления
+        state = 'chooseExercise'
         showScreen(winTwo)
         tg.MainButton.hide();
-    }
-    else if (state == states[2]){
+    } else if (state == 'chooseExercise'){
         // Выбор Упражнения
         category_id = getCookie('category_id') || category_id
 
@@ -210,23 +207,23 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
 
             showScreen(winThree)
             showMainButton(`Перейти к упражнению ${exNum+1}`)
+            state = 'exercises'
         })
-    } else if (state == states[3]){
+    } else if (state == 'exercises'){
         // Упражнения
         showScreen(ex)
 
         //Показываю запрашиваемое упражнение
         showExercise(exNum)
-        // exNum = exNum+1
-
         
         if(exNum == 4) {
             //TODO: возвращать на неотвеченный вопрос 
+            state == 'final'
             showMainButton(`3.. 4... Закончили!`)
         } else {
             // showMainButton(`Перейти к упражнению ${exNum+1}`)
         }
-    } else if (state == states[4]){
+    } else if (state == 'final'){
         // Финал
         showScreen(winEnd)
         i = 1
