@@ -31,7 +31,7 @@ let toMainEx = document.querySelectorAll('toExercises')
 toMainEx.forEach( btn => {
     btn.addEventListener('click', goToMainWindow)
   })
-  
+
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
         exNum = ind
