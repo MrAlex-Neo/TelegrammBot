@@ -176,7 +176,10 @@ p {
 }
 
 
-
+.windowDivThree .btnMainOrder {
+    display: flex;
+    justify-content: space-around;
+}
 .btnMainOrder button{
     width: 61px;
     height: 39px;
