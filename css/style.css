@@ -53,9 +53,10 @@ p {
     height: 17px;
     margin-bottom: 37px;
     margin-left: 5vw;
+}
+.logoDiv {
     cursor: pointer;
 }
-
 .userBlockName {
     position: absolute;
     top: 34px;
