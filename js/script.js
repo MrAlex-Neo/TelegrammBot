@@ -159,8 +159,8 @@ function renderQuestions() {
     let exs = document.querySelectorAll('.ex')
     questions.forEach( (q, ind) => {
         exs[ind].querySelector('h3').innerHTML = q.question
-        exs[ind].querySelectorAll('.exAnswers button').forEach( a => {
-            a.innerHTML = q.answer
+        exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
+            a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answer_id)
         })
     })
