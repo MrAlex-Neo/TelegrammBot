@@ -226,6 +226,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         showScreen(ex)
 
         //Показываю запрашиваемое упражнение
+        console.log(`exercises ` + exNum)
         showExercise(exNum)
         
         if(exNum == 4) {
