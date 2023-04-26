@@ -14,6 +14,10 @@ let states = [
     'final'
 ]
 
+let i = 0
+let state
+let exNum = 0
+
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
@@ -118,9 +122,7 @@ function showExercise(ind) {
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
-let i = 0
-let state
-let exNum = 0
+
 // if(getCookie('category_id') != undefined) {
 if(7 == 5) {
     // Экран упражнений
