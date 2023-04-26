@@ -300,6 +300,29 @@ input:active, input:hover, input:focus {
     margin: 0;
 }
 
+
+.toExercises {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    border: 2px solid #AEB4C2;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 101px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+.toExercises img {
+    width: 7px;
+    height: 14px;
+}
+.toExercises span {
+    margin-bottom: 3px;
+}
 /* .pushFile {
     display: flex;
     justify-content: space-between;
