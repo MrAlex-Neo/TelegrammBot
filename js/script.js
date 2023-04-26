@@ -10,20 +10,10 @@ let states = [
     'hello',
     'chooseDirection',
     'chooseExercise',
-    'exercise',
-    'exTwo',
-    'exThree',
-    'exFour',
-    'exFive',
+    'exercises',
     'final'
 ]
-let exers = [
-    'one',
-    'two',
-    'three',
-    'four',
-    'five'
-]
+
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
@@ -99,14 +89,12 @@ function showMainButton(text) {
     tg.MainButton.setText(text);
     tg.MainButton.show();
 }
-function showExercise(elem) {
-    exOne.classList.add('none')
-    exTwo.classList.add('none')
-    exThree.classList.add('none')
-    exFour.classList.add('none')
-    exFive.classList.add('none')
 
-    elem.classList.remove('none')
+function showExercise(ind) {
+    let exs = document.querySelectorAll('.ex').forEach( ex => {
+        ex.classList.add('none')
+    })
+    exs[ind].classList.remove('none')
 }
 
 
@@ -114,8 +102,7 @@ username.innerHTML = tg.initDataUnsafe.user.first_name
 
 let i = 0
 let state
-let u = 0
-let exer
+let exNum = 0
 // if(getCookie('category_id') != undefined) {
 if(7 == 5) {
     // Экран упражнений
@@ -132,7 +119,6 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
     state = states[i]
     
-    exer = exers[u]
     console.log(state)
     if (state == states[1] ){
         // Выбор направления
@@ -148,44 +134,12 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
+        
         // Генерировать и проверять все упражнения
-        showExercise(exOne)
-        // удалить после тестов:
-        u += 1;
+        showExercise(exNum)
+
         showMainButton('Далее')
     } else if (state == states[4]){
-        // Упражнения
-        showScreen(ex)
-        // Генерировать и проверять все упражнения
-        showExercise(exTwo)
-        // удалить после тестов:
-        u += 1;
-        showMainButton('Далее')
-    } else if (state == states[5]){
-        // Упражнения
-        showScreen(ex)
-        // Генерировать и проверять все упражнения
-        showExercise(exThree)
-        // удалить после тестов:
-        u += 1;
-        showMainButton('Далее')
-    } else if (state == states[6]){
-        // Упражнения
-        showScreen(ex)
-        // Генерировать и проверять все упражнения
-        showExercise(exFour)
-        // удалить после тестов:
-        u += 1;
-        showMainButton('Далее')
-    } else if (state == states[7]){
-        // Упражнения
-        showScreen(ex)
-        // Генерировать и проверять все упражнения
-        showExercise(exFive)
-        // удалить после тестов:
-        u += 1;
-        showMainButton('Далее')
-    } else if (state == states[8]){
         // Финал
         showScreen(winEnd)
         i = 1
@@ -193,6 +147,9 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     }
 })
 
+
+
+// Кажется нам это не пригодится:
 
 var imageLoader = document.getElementById('file');
     imageLoader.addEventListener('change', handleImage, false);
@@ -229,15 +186,3 @@ function handleImage(e){
 
         
 }
-
-
-
-
-// $(document).on('click', '#btn', function(){
-//     var formData = new FormData();
-//     formData.append("myFile", document.getElementById("file").files[0], 'chris1.jpg');
-    
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("POST", "index.php");
-    // xhr.send(formData);
-// });
