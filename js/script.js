@@ -96,6 +96,10 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
+    if(answered) {
+        exNum = exNum+1
+        showMainButton(`Перейти к упражнению ${exNum+1}`)
+    }
 }
 
 async function sendRequest(url, method, data) {
@@ -164,7 +168,7 @@ function renderQuestions() {
                             showMainButton(`3.. 4... Закончили!`)
                         } else {
                             exNum = exNum+1
-                            showMainButton(`Перейти к упражнению ${exNum+2}`)
+                            showMainButton(`Перейти к упражнению ${exNum+1}`)
                         }
                     })
                 }
@@ -199,7 +203,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
     } else if (state == 'chooseExercise'){
         // Выбор Упражнения
         category_id = getCookie('category_id') || category_id
-
+        exNum = 0
         sendRequest('quizzes', "GET", {category_id})
         .then((response) => {
             console.log(response) 
