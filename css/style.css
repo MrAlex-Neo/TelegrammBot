@@ -245,7 +245,7 @@ input:active, input:hover, input:focus {
     flex-direction: column;
     gap: 10px;
 }
-/* .exAnswers button {
+.exAnswers button {
     width: 280px;
     height: 48px;
     text-align: left;
@@ -254,7 +254,7 @@ input:active, input:hover, input:focus {
     margin: 0 auto;
 }
 
-.exAnswers.three {
+/* .exAnswers.three {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
