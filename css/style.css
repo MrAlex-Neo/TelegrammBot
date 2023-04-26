@@ -245,7 +245,7 @@ input:active, input:hover, input:focus {
     flex-direction: column;
     gap: 10px;
 }
-.exAnswers button {
+/* .exAnswers button {
     width: 280px;
     height: 48px;
     text-align: left;
@@ -272,14 +272,14 @@ input:active, input:hover, input:focus {
     font-size: 75.6364px;
     line-height: 150%;
     text-transform: uppercase;
-}
+} */
 
 .exFoutCheckNumb {
     display: flex;
     justify-content: space-between;
 }
 
-.exAnswers.four{
+/* .exAnswers.four{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -295,7 +295,7 @@ input:active, input:hover, input:focus {
     font-size: 24px;
     line-height: 150%;
     border-radius: 10px;
-}
+} */
 
 .boxFive img{
     width: 34px;
