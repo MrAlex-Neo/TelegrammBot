@@ -27,6 +27,11 @@ let winEnd = document.querySelector('.windowDivEnd')
 // let exFour = document.querySelector('.ex.FourEx')
 // let exFive = document.querySelector('.ex.FiveEx')
 
+let toMainEx = document.querySelectorAll('toExercises')
+toMainEx.forEach( btn => {
+    btn.addEventListener('click', goToMainWindow)
+  })
+  
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
         exNum = ind
