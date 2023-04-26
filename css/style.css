@@ -53,6 +53,7 @@ p {
     height: 17px;
     margin-bottom: 37px;
     margin-left: 5vw;
+    cursor: pointer;
 }
 
 .userBlockName {
