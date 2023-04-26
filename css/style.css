@@ -237,12 +237,12 @@ input:active, input:hover, input:focus {
 }
 
 /* .exTwo  */
-.exThreeeAnswers {
+.exAnswers {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.exThreeeAnswers button {
+.exAnswers button {
     width: 280px;
     height: 48px;
     text-align: left;
@@ -251,7 +251,7 @@ input:active, input:hover, input:focus {
     margin: 0 auto;
 }
 
-.exThreeeAnswers.three {
+.exAnswers.three {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -259,7 +259,7 @@ input:active, input:hover, input:focus {
     gap: 15px;
     
 }
-.exThreeeAnswers.three button {
+.exAnswers.three button {
     width: 120px;
     height: 120px;
     border-radius: 10px;
@@ -276,14 +276,14 @@ input:active, input:hover, input:focus {
     justify-content: space-between;
 }
 
-.exThreeeAnswers.four{
+.exAnswers.four{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 5px;
     margin-bottom: 10px;
 }
-.exThreeeAnswers.four button{
+.exAnswers.four button{
     width: 70px;
     height: 70px;
     margin: 0;
