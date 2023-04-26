@@ -151,16 +151,21 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // Выбор Упражнения
         showScreen(winThree)
 
-        // удалить после тестов:
-        showMainButton('Далее')
+        showMainButton(`Перейти к упражнению ${exNum+1}`)
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
         
-        // Генерировать и проверять все упражнения
+        //Генерирую запрашиваемое упражнение
         showExercise(exNum)
 
-        showMainButton('Далее')
+        
+        if(exNum == 5) {
+            //TODO: возвращать на неотвеченный вопрос 
+            
+        } else {
+            showMainButton(`Перейти к упражнению ${exNum+1}`)
+        }
     } else if (state == states[4]){
         // Финал
         showScreen(winEnd)
