@@ -148,20 +148,15 @@ function renderQuestions() {
                         let correct_answer = response.answer_id
                         document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                     }
-                    if(exNum == 5) {
+                    if(exNum == 4) {
+                        //TODO: возвращать на неотвеченный вопрос 
+                        showMainButton(`3.. 4... Закончили!`)
+                    } else {
                         exNum = exNum+1
+                        showMainButton(`Перейти к упражнению ${exNum+1}`)
                     }
-                    showMainButton(`Перейти к упражнению ${exNum+1}`)
-
                     
-                    // let answrs = document.querySelectorAll(`.exAnswers button[data-question_id="${question_id}"]`)
-                    
-                    // questions = response[0].questions
-                    // localStorage.setItem('questions', JSON.stringify(questions));
-                    
-                    // showScreen(winThree)
                 })
-                showMainButton(`Перейти к упражнению ${exNum+1}`)
             })
         })
     })
@@ -216,7 +211,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         showExercise(exNum)
 
         
-        if(exNum == 5) {
+        if(exNum == 4) {
             //TODO: возвращать на неотвеченный вопрос 
 
         } else {
