@@ -20,6 +20,7 @@ let i = 0
 let state
 let exNum = 0
 let answer_id = 0
+let answered = false
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
@@ -138,33 +139,35 @@ function renderQuestions() {
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
-                let answer_id = a.getAttribute('data-answer_id')
-                let question_id = a.getAttribute('data-question_id')
-                
-                sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
-                .then((response) => {
-                    console.log(response)
-
-                    if(response.is_correct) {
-                        a.classList.add('trueBar')
-                        a.classList.remove('emptyBar')
-                    } else {
-                        a.classList.add('wrongBar')
-                        a.classList.remove('emptyBar')
-                        let correct_answer = response.answer_id
-                        document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
-                        document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
-                    }
-                    if(exNum == 4) {
-                        //TODO: возвращать на неотвеченный вопрос 
-                        state == 'final'
-                        showMainButton(`3.. 4... Закончили!`)
-                    } else {
-                        exNum = exNum+1
-                        showMainButton(`Перейти к упражнению ${exNum+2}`)
-                    }
+                if(!answered) {
+                    let answer_id = a.getAttribute('data-answer_id')
+                    let question_id = a.getAttribute('data-question_id')
                     
-                })
+                    sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
+                    .then((response) => {
+                        console.log(response)
+    
+                        if(response.is_correct) {
+                            a.classList.add('trueBar')
+                            a.classList.remove('emptyBar')
+                        } else {
+                            a.classList.add('wrongBar')
+                            a.classList.remove('emptyBar')
+                            let correct_answer = response.answer_id
+                            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
+                        }
+                        answered = true
+                        if(exNum == 4) {
+                            //TODO: возвращать на неотвеченный вопрос 
+                            state == 'final'
+                            showMainButton(`3.. 4... Закончили!`)
+                        } else {
+                            exNum = exNum+1
+                            showMainButton(`Перейти к упражнению ${exNum+2}`)
+                        }
+                    })
+                }
             })
         })
     })
@@ -210,6 +213,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
             state = 'exercises'
         })
     } else if (state == 'exercises'){
+        answered = false
         // Упражнения
         showScreen(ex)
 
