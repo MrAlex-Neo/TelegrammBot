@@ -11,6 +11,10 @@ let states = [
     'chooseDirection',
     'chooseExercise',
     'exercise',
+    'exTwo',
+    'exThree',
+    'exFour',
+    'exFive',
     'final'
 ]
 let exers = [
@@ -149,7 +153,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // удалить после тестов:
         u += 1;
         showMainButton('Далее')
-    } else if (7 == 5){
+    } else if (state == states[8]){
         // Финал
         showScreen(winEnd)
         showMainButton('Забрать скидку')
