@@ -189,7 +189,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         .then((response) => {
             console.log(response) 
             questions = response[0].questions
-            setCookie('questions', questions)
+            setCookie('questions', JSON.stringify(questions))
         })
         // console.log(response)
         showScreen(winThree)
