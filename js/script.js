@@ -199,23 +199,25 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
             console.log(response) 
             questions = response[0].questions
             localStorage.setItem('questions', JSON.stringify(questions));
-            
+
+            renderQuestions()
+
             showScreen(winThree)
             showMainButton(`Перейти к упражнению ${exNum+1}`)
         })
     } else if (state == states[3]){
         // Упражнения
-        renderQuestions()
         showScreen(ex)
-        //Генерирую запрашиваемое упражнение
+
+        //Показываю запрашиваемое упражнение
         showExercise(exNum)
 
         
         if(exNum == 4) {
             //TODO: возвращать на неотвеченный вопрос 
-
+            showMainButton(`3.. 4... Закончили!`)
         } else {
-            showMainButton(`Перейти к упражнению ${exNum+1}`)
+            // showMainButton(`Перейти к упражнению ${exNum+1}`)
         }
     } else if (state == states[4]){
         // Финал
