@@ -160,7 +160,7 @@ function renderQuestions() {
                         state == 'final'
                         showMainButton(`3.. 4... Закончили!`)
                     } else {
-                        // exNum = exNum+1
+                        exNum = exNum+1
                         showMainButton(`Перейти к упражнению ${exNum+2}`)
                     }
                     
