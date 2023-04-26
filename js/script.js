@@ -13,7 +13,7 @@ let states = [
     'final'
 ]
 
-let user_id = tg.initDataUnsafe.chat.id
+let user_id = tg.initDataUnsafe.user.id
 // let user_id = 1918321
 
 let i = 0
