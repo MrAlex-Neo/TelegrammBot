@@ -63,6 +63,15 @@ function showMainButton(text) {
     tg.MainButton.setText(text);
     tg.MainButton.show();
 }
+function showExercise(elem) {
+    exOne.classList.add('none')
+    exTwo.classList.add('none')
+    exThree.classList.add('none')
+    exFour.classList.add('none')
+    exFive.classList.add('none')
+
+    elem.classList.remove('none')
+}
 
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
@@ -86,7 +95,7 @@ if(7 == 5) {
 Telegram.WebApp.onEvent ('mainButtonClicked', function() {
     i += 1;
     state = states[i]
-    u += 1;
+    
     exer = exers[u]
     console.log(state)
     if (state == states[1] ){
@@ -104,8 +113,41 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
-        
+        showExercise(exOne)
         // удалить после тестов:
+        u += 1;
+        showMainButton('Далее')
+    } else if (state == states[3] && exer == exers[1]){
+        // Упражнения
+        showScreen(ex)
+        // Генерировать и проверять все упражнения
+        showExercise(exTwo)
+        // удалить после тестов:
+        u += 1;
+        showMainButton('Далее')
+    } else if (state == states[3] && exer == exers[2]){
+        // Упражнения
+        showScreen(ex)
+        // Генерировать и проверять все упражнения
+        showExercise(exThree)
+        // удалить после тестов:
+        u += 1;
+        showMainButton('Далее')
+    } else if (state == states[3] && exer == exers[3]){
+        // Упражнения
+        showScreen(ex)
+        // Генерировать и проверять все упражнения
+        showExercise(exFour)
+        // удалить после тестов:
+        u += 1;
+        showMainButton('Далее')
+    } else if (state == states[3] && exer == exers[4]){
+        // Упражнения
+        showScreen(ex)
+        // Генерировать и проверять все упражнения
+        showExercise(exFive)
+        // удалить после тестов:
+        u += 1;
         showMainButton('Далее')
     } else if (7 == 5){
         // Финал
