@@ -152,12 +152,28 @@ p {
 .none {
     display: none;
 }
-.activeBar {
+
+
+
+.trueBar {
     background-color: #3274FF;
+    border: 2px solid #3274FF;
 }
-.passiveBar {
+.wrongBar {
+    background-color: #FD4E5D;
+    border: 2px solid #FD4E5D;
+}
+.activeBar {
     background-color: #78BAF5;
+    border: 2px solid #78BAF5;
 }
+.emptyBar {
+    background-color: #FFFFFF;
+    border: 2px solid #AEB4C2;
+}
+
+
+
 .btnMainOrder button{
     width: 65px;
     height: 35px;
@@ -165,7 +181,6 @@ p {
     cursor: pointer;
     text-decoration: none;
     text-transform: 0;
-    border: 2px solid #78BAF5;
     text-decoration: none;
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
@@ -182,7 +197,6 @@ p {
     border-radius: 10px;
     text-decoration: none;
     text-transform: 0;
-    border: 2px solid #78BAF5;
     text-decoration: none;
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
