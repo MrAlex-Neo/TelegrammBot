@@ -56,9 +56,9 @@ username.innerHTML = tg.initDataUnsafe.user.first_name
 
 let i = 0
 let state
-if(getCookie('category_id') != undefined) {
+// if(getCookie('category_id') != undefined) {
+if(7 == 5) {
     // Экран упражнений
-    console.log(" ятут")
     i = 2
     state == states[3]
     showScreen(winThree)
@@ -100,15 +100,50 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
 })
 
 
+var imageLoader = document.getElementById('file');
+    imageLoader.addEventListener('change', handleImage, false);
+let canvas = document.querySelectorAll('.thumbnail');
+
+
+function handleImage(e){
+    // console.log(e)
+    for(let i = 0; i < e.target.files.length;i++) {
+        let ctx = canvas[i].getContext('2d');
+        let reader = new FileReader();
+        reader.onload = function(event){
+            let img = new Image();
+            img.onload = function(){
+                canvas.width = '62';
+                canvas.height = '62';
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let scale_factor = Math.min(canvas.width / img.width, canvas.height / img.height);
+                
+                let newWidth = img.width * scale_factor;
+                let newHeight = img.height * scale_factor;
+                    
+                let x = (canvas.width / 2) - (newWidth / 2);
+                let y = (canvas.height / 2) - (newHeight / 2);
+
+                ctx.drawImage(img, x, y, newWidth, newHeight);
+            }
+            img.src = event.target.result;
+        }
+        reader.readAsDataURL(e.target.files[i]); 
+    }
+
+        
+}
 
 
 
 
-$(document).on('click', '#btn', function(){
-    var formData = new FormData();
-    formData.append("myFile", document.getElementById("file").files[0], 'chris1.jpg');
+// $(document).on('click', '#btn', function(){
+//     var formData = new FormData();
+//     formData.append("myFile", document.getElementById("file").files[0], 'chris1.jpg');
     
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "index.php");
-    xhr.send(formData);
-});
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("POST", "index.php");
+    // xhr.send(formData);
+// });

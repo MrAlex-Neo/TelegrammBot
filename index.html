@@ -145,13 +145,22 @@
             </div>
             <h3>5. Упражнение</h3>
             <span>Прикрепите файл</span>
-            <div class="boxFive">
+            <!-- <div class="boxFive">
                 <img src="./img/Skrepka.svg" alt="">
-            </div>
+            </div> -->
             <div class="pushFile">
-                <form method="post" enctype="multipart/form-data" action="">
-                <!-- <input type="button" id="btn" value="GO" /> -->
-                <input type="file" id="file" name="file" />
+                <!-- <form method="post" enctype="multipart/form-data" action=""> -->
+                    <!-- <input type="button" id="btn" value="GO" /> -->
+                    <label>
+                        <div class="boxFive">
+                            <img src="./img/Skrepka.svg" alt="">
+                        </div>
+                        <input type="file" id="file" name="file" multiple="multiple"/>
+                        <canvas class="thumbnail" width="62px" height="62px"></canvas>
+                        <canvas class="thumbnail" width="62px" height="62px"></canvas>
+                        <canvas class="thumbnail" width="62px" height="62px"></canvas>
+                    </label>
+                <!-- </form> -->
             </div>
             </section>
         </section>
@@ -176,7 +185,7 @@
         </div>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
