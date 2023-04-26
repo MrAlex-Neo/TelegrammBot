@@ -152,26 +152,47 @@ p {
 .none {
     display: none;
 }
-.activeBar {
+
+
+
+.trueBar {
     background-color: #3274FF;
+    border: 2px solid #3274FF;
+    color: #FFFFFF;
 }
-.passiveBar {
+.wrongBar {
+    background-color: #FD4E5D;
+    border: 2px solid #FD4E5D;
+    color: #FFFFFF;
+}
+.activeBar {
     background-color: #78BAF5;
+    border: 2px solid #78BAF5;
+    color: #FFFFFF;
 }
+.emptyBar {
+    background-color: #FFFFFF;
+    border: 2px solid #AEB4C2;
+}
+
+
+
 .btnMainOrder button{
-    width: 65px;
-    height: 35px;
+    width: 61px;
+    height: 39px;
     border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
     text-transform: 0;
-    border: 2px solid #78BAF5;
     text-decoration: none;
     text-transform: none;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
     /* color: var(--tg-theme-text-color); */
 }
 .btnMainOrder button:hover {
-    background-color: white; 
+    background-color: #78BAF5; 
     color: black; 
     border: 2px solid #008CBA;
 }
@@ -182,7 +203,6 @@ p {
     border-radius: 10px;
     text-decoration: none;
     text-transform: 0;
-    border: 2px solid #78BAF5;
     text-decoration: none;
     text-transform: none;
     /* color: var(--tg-theme-text-color); */
@@ -217,12 +237,12 @@ input:active, input:hover, input:focus {
 }
 
 /* .exTwo  */
-.exThreeeAnswers {
+.exAnswers {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.exThreeeAnswers button {
+.exAnswers button {
     width: 280px;
     height: 48px;
     text-align: left;
@@ -231,7 +251,7 @@ input:active, input:hover, input:focus {
     margin: 0 auto;
 }
 
-.exThreeeAnswers.three {
+.exAnswers.three {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -239,7 +259,7 @@ input:active, input:hover, input:focus {
     gap: 15px;
     
 }
-.exThreeeAnswers.three button {
+.exAnswers.three button {
     width: 120px;
     height: 120px;
     border-radius: 10px;
@@ -256,14 +276,14 @@ input:active, input:hover, input:focus {
     justify-content: space-between;
 }
 
-.exThreeeAnswers.four{
+.exAnswers.four{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 5px;
     margin-bottom: 10px;
 }
-.exThreeeAnswers.four button{
+.exAnswers.four button{
     width: 70px;
     height: 70px;
     margin: 0;
