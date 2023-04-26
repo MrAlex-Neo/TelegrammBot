@@ -50,7 +50,7 @@ let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exB
 function goToMainWindow() {
     showScreen(winThree)
     i = 2
-    showMainButton('Далее')
+    showMainButton(`Вернуться к упражнению ${exNum+1}`)
 }
 
 function setPoints(categoryId){
