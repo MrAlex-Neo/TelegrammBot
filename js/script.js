@@ -67,6 +67,11 @@ let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exB
 // });
 
 
+function goToMainWindow() {
+    showScreen(winThree)
+    i = 2
+    showMainButton('Далее')
+}
 function setPoints(categoryId){
     showMainButton('Далее')
     document.querySelectorAll('.winTwoBox').forEach( btn => {
