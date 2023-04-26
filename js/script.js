@@ -153,7 +153,7 @@ function renderQuestions() {
                         showMainButton(`3.. 4... Закончили!`)
                     } else {
                         // exNum = exNum+1
-                        showMainButton(`Перейти к упражнению ${exNum+1}`)
+                        showMainButton(`Перейти к упражнению ${exNum}`)
                     }
                     
                 })
