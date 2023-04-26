@@ -212,6 +212,8 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
             showMainButton(`Перейти к упражнению ${exNum+1}`)
         })
     } else if (state == states[3]){
+        i -= 1;
+        state = states[i]
         // Упражнения
         showScreen(ex)
 
