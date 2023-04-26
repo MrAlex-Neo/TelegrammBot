@@ -109,7 +109,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
 
         // удалить после тестов:
         showMainButton('Далее')
-    } else if (state == states[3] && exer == exers[0]){
+    } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
@@ -117,7 +117,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // удалить после тестов:
         u += 1;
         showMainButton('Далее')
-    } else if (state == states[3] && exer == exers[1]){
+    } else if (state == states[4]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
@@ -125,7 +125,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // удалить после тестов:
         u += 1;
         showMainButton('Далее')
-    } else if (state == states[3] && exer == exers[2]){
+    } else if (state == states[5]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
@@ -133,7 +133,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // удалить после тестов:
         u += 1;
         showMainButton('Далее')
-    } else if (state == states[3] && exer == exers[3]){
+    } else if (state == states[6]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
@@ -141,7 +141,7 @@ Telegram.WebApp.onEvent ('mainButtonClicked', function() {
         // удалить после тестов:
         u += 1;
         showMainButton('Далее')
-    } else if (state == states[3] && exer == exers[4]){
+    } else if (state == states[7]){
         // Упражнения
         showScreen(ex)
         // Генерировать и проверять все упражнения
