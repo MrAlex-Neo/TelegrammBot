@@ -226,7 +226,7 @@ h3 {
     margin: 0;
 }
 
-input{
+/* input{
     width: 100%;
     height: 30px;
     border: none;
@@ -237,7 +237,7 @@ input{
 input:active, input:hover, input:focus {
     outline: 0;
     outline-offset: 0;
-}
+} */
 
 /* .exTwo  */
 .exAnswers {
