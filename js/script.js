@@ -18,8 +18,10 @@ let i = 0
 let state
 let exNum = 0
 let category_id = getCookie('category_id') || 1
-let questions = {} 
-
+let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
+if(questions[0]) {
+    console.log('renderQuestions')
+}
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
@@ -153,6 +155,17 @@ async function sendRequest(url, method, data) {
     }
 }
 
+function renderQuestions() {
+    let exs = document.querySelectorAll('.ex')
+    questions.forEach( q => {
+        exs.querySelector('h3').innerHTML = q.question
+        exs.querySelectorAll('.exAnswers button').forEach( a => {
+            a.innerHTML = q.answer
+            a.setAttribute('data-answer_id', q.answer_id)
+        })
+    })
+}
+
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
@@ -189,12 +202,11 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         .then((response) => {
             console.log(response) 
             questions = response[0].questions
-            setCookie('questions', JSON.stringify(questions))
+            localStorage.setItem('questions', JSON.stringify(questions));
             
             showScreen(winThree)
             showMainButton(`Перейти к упражнению ${exNum+1}`)
         })
-        // console.log(response)
     } else if (state == states[3]){
         // Упражнения
         showScreen(ex)
