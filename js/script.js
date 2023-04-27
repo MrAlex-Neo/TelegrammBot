@@ -205,7 +205,7 @@ function renderQuestions() {
                                 a.classList.remove('emptyBar')
                                 
                                 let progressBars = document.querySelectorAll('.btnMainOrder div')
-                                progressBars[ex_id].classList.add('wrongBar')
+                                progressBars[ex_id].classList.add('trueBar')
                                 progressBars[ex_id].classList.remove('emptyBar')
                             } else {
                                 a.classList.add('wrongBar')
