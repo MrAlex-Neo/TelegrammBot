@@ -139,6 +139,10 @@ function showExercise(ind) {
     })
     exs[ind].classList.remove('none')
 
+    //activeBar
+    let progressBars = document.querySelectorAll('.btnMainOrder div')
+    progressBars[ex_id].classList.add('activeBar')
+    progressBars[ex_id].classList.remove('emptyBar')
     let answered = exs[ind].getAttribute('data-answered') || false
     if(answered == true) {
         exNum = exNum+1
@@ -206,14 +210,14 @@ function renderQuestions() {
                                 
                                 let progressBars = document.querySelectorAll('.btnMainOrder div')
                                 progressBars[ex_id].classList.add('trueBar')
-                                progressBars[ex_id].classList.remove('emptyBar')
+                                progressBars[ex_id].classList.remove('activeBar')
                             } else {
                                 a.classList.add('wrongBar')
                                 a.classList.remove('emptyBar')
 
                                 let progressBars = document.querySelectorAll('.btnMainOrder div')
                                 progressBars[ex_id].classList.add('wrongBar')
-                                progressBars[ex_id].classList.remove('emptyBar')
+                                progressBars[ex_id].classList.remove('activeBar')
                                 
                                 let correct_answer = response.answer_id
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
