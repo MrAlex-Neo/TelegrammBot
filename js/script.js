@@ -163,7 +163,7 @@ function renderQuestions() {
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                         }
                         answered = true
-                        if(exNum == 4) {
+                        if(exNum == 5) {
                             //TODO: возвращать на неотвеченный вопрос 
                             state == 'final'
                             showMainButton(`3.. 4... Закончили!`)
@@ -228,7 +228,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         console.log(`exercises ` + exNum)
         showExercise(exNum)
         
-        if(exNum == 4) {
+        if(exNum == 5) {
             //TODO: возвращать на неотвеченный вопрос 
             state == 'final'
             showMainButton(`3.. 4... Закончили!`)
