@@ -37,7 +37,7 @@ let progressBars = document.querySelectorAll('.btnMainOrder div')
 
 getUser().then((User) => {
     console.log(User)
-    questions = User.questions
+    questions = User.questions || 0
     exNum = 0
     state = 'chooseDirection'
     showMainButton('Готов!')
@@ -277,18 +277,29 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // Выбор Упражнения
         exNum = 0
         console.log(`chooseExercise new exNum=${exNum}`)
-        sendRequest('quizzes', "GET", {category_id})
-        .then((response) => {
-            console.log(response) 
-            questions = response[0].questions
-            
+        if(questions != 0) {
+            //Уже отвечал на вопросы
             console.log('Рендерю вопросы')
             renderQuestions()
 
             showScreen(winThree)
             showMainButton(`Перейти к упражнению ${exNum+1}`)
             state = 'exercises'
-        })
+        } else {
+            //До этого не отвечал на вопросы
+            sendRequest('quizzes', "GET", {category_id})
+            .then((response) => {
+                console.log(response) 
+                questions = response[0].questions
+                
+                console.log('Рендерю вопросы')
+                renderQuestions()
+    
+                showScreen(winThree)
+                showMainButton(`Перейти к упражнению ${exNum+1}`)
+                state = 'exercises'
+            })
+        }
     } else if (state == 'exercises'){
         
         // Упражнения
