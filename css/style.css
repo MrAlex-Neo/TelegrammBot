@@ -316,6 +316,8 @@ input:active, input:hover, input:focus {
     width: 101px;
     margin-bottom: 12px;
     cursor: pointer;
+
+    display: none;
 }
 .toExercises img {
     width: 7px;

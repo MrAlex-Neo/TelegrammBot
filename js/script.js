@@ -52,10 +52,10 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
-let toMainEx = document.querySelectorAll('.toExercises')
-toMainEx.forEach( btn => {
-    btn.addEventListener('click', goToMainWindow)
-  })
+// let toMainEx = document.querySelectorAll('.toExercises')
+// toMainEx.forEach( btn => {
+//     btn.addEventListener('click', goToMainWindow)
+//   })
 
 let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
     exBtn.addEventListener('click', () => {
