@@ -190,7 +190,7 @@ function renderQuestions() {
                 a.addEventListener('click', () => {
                     // Обработка выбранного пользователем ответа
                     let ex_id = a.getAttribute('data-index')
-                    let answered = querySelectorAll('.ex')[ex_id].getAttribute('data-answered')
+                    let answered = document.querySelectorAll('.ex')[ex_id].getAttribute('data-answered')
                     if(!answered) {
                         let answer_id = a.getAttribute('data-answer_id')
                         let question_id = a.getAttribute('data-question_id')
