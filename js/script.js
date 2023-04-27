@@ -38,6 +38,10 @@ getUser().then((User) => {
     exNum = 0
     state = 'chooseDirection'
     showMainButton('Готов!')
+    if(User.category_id > 0) {
+        // Уже выбрал направление
+        
+    }
     // state = 'chooseExercise'
     // if(questions[0]) {
         // category_id = getCookie('category_id') || category_id
