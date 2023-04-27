@@ -150,7 +150,9 @@ function showExercise(ind) {
     progressBars[ind].classList.add('activeBar')
     progressBars[ind].classList.remove('emptyBar')
     let answered = exs[ind].getAttribute('data-answered') || false
-    if(answered == true) {
+    console.log(`answered = ` + answered)
+    if(answered == "true" || answered) {
+        console.log(`Открываю уже отвеченный вопрос`)
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
         if(exNum == 4) {
@@ -263,14 +265,12 @@ function renderAnsweredQuestions() {
             let selected_answer = uQ.selected_answer
             let correct_answer = uQ.correct_answer
             if(question_status == "correct") {
-                console.log(`.ex[data-question_id="${uQ_ind}"]`)
-                console.log(document.querySelector(`.ex[data-question_id="${uQ_ind}"]`))
-                document.querySelector(`.ex[data-question_id="${uQ_ind}"]`).setAttribute('data-answered', true)
+                document.querySelectorAll(`.ex`)[uQ_ind].setAttribute('data-answered', true)
                 
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
             } else if(question_status == "incorrect") {
-                document.querySelector(`.ex[data-question_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                document.querySelectorAll(`.ex`)[uQ_ind].setAttribute('data-answered', true)
                 
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
