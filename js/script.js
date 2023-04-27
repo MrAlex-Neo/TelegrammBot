@@ -13,8 +13,8 @@ let states = [
     'final'
 ]
 
-// let user_id = tg.initDataUnsafe.user.id
-let user_id = 1918321
+let user_id = tg.initDataUnsafe.user.id
+// let user_id = 1918321
 
 let i = 0
 let state
@@ -22,35 +22,41 @@ let exNum = 0
 let answer_id = 0
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
-if(questions[0]) {
-    // console.log('renderQuestions')
-    // renderQuestions()
-
-    // chooseExercise state
-    state = 'chooseExercise'
-    category_id = getCookie('category_id') || category_id
-    exNum = 0
-    console.log(`chooseExercise new exNum=${exNum}`)
-    sendRequest('quizzes', "GET", {category_id})
-    .then((response) => {
-        console.log(response) 
-        questions = response[0].questions
-        localStorage.setItem('questions', JSON.stringify(questions));
-
-        renderQuestions()
-
-        showScreen(winThree)
-        showMainButton(`Перейти к упражнению ${exNum+1}`)
-        state = 'exercises'
-    })
-
-}
+let User
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
 let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
+
+
+
+getUser().then((User) => {
+    console.log(User)
+    questions = User.questions
+    exNum = 0
+    state = 'chooseDirection'
+    showMainButton('Готов!')
+    // state = 'chooseExercise'
+    // if(questions[0]) {
+        // category_id = getCookie('category_id') || category_id
+        // console.log(`chooseExercise new exNum=${exNum}`)
+        // sendRequest('quizzes', "GET", {category_id})
+        // .then((response) => {
+        //     console.log(response) 
+        //     questions = response[0].questions
+        //     localStorage.setItem('questions', JSON.stringify(questions));
+
+        //     renderQuestions()
+
+        //     showScreen(winThree)
+        //     showMainButton(`Перейти к упражнению ${exNum+1}`)
+        //     state = 'exercises'
+        // })
+    // }
+
+})
 
 // let toMainEx = document.querySelectorAll('.toExercises')
 // toMainEx.forEach( btn => {
@@ -221,13 +227,17 @@ function renderQuestions() {
     })
 }
 
+async function getUser() {
+    let response = await sendRequest('get-user/', "GET", {user_id})
+    return response[0]
+}
+
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
 
 // if(getCookie('category_id') != undefined) {
-state = 'chooseDirection'
-showMainButton('Готов!')
+
 
 
 Telegram.WebApp.onEvent('mainButtonClicked', function() {    
