@@ -219,7 +219,7 @@ function renderQuestions() {
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                             }
-                            if(exNum == 5) {
+                            if(exNum == 4) {
                                 //TODO: возвращать на неотвеченный вопрос 
                                 state == 'final'
                                 showMainButton(`3.. 4... Закончили!`)
