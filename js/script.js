@@ -97,7 +97,7 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
-    if(answered) {
+    if(exs[ind].getAttribute('data-answered') == true) {
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
         showMainButton(`Перейти к упражнению ${exNum+1}`)
@@ -145,7 +145,7 @@ function renderQuestions() {
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
-                if(!answered) {
+                if(exs[ind].getAttribute('data-answered') != true) {
                     let answer_id = a.getAttribute('data-answer_id')
                     let question_id = a.getAttribute('data-question_id')
                     let ex_id = a.getAttribute('data-index')
@@ -177,7 +177,8 @@ function renderQuestions() {
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                         }
-                        answered = true
+                        exs[ind].setAttribute('data-answered', true)
+                        // answered = true
                         if(exNum == 5) {
                             //TODO: возвращать на неотвеченный вопрос 
                             state == 'final'
