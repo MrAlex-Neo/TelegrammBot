@@ -26,6 +26,23 @@ let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {}
 if(questions[0]) {
     // console.log('renderQuestions')
     // renderQuestions()
+    // chooseExercise state
+    state = 'chooseExercise'
+    category_id = getCookie('category_id') || category_id
+    exNum = 0
+    console.log(`chooseExercise new exNum=${exNum}`)
+    sendRequest('quizzes', "GET", {category_id})
+    .then((response) => {
+        console.log(response) 
+        questions = response[0].questions
+        localStorage.setItem('questions', JSON.stringify(questions));
+
+        renderQuestions()
+
+        showScreen(winThree)
+        showMainButton(`Перейти к упражнению ${exNum+1}`)
+        state = 'exercises'
+    })
 }
 
 let winOne = document.querySelector('.windowDivOne')
