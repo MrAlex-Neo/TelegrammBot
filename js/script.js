@@ -299,8 +299,8 @@ async function updateUserPrize() {
     let discount = response.discount
 
     document.getElementById('discount').innerHTML = discount
+    document.getElementById('discountFinal').innerHTML = discount
     document.getElementById('distanceTraveled').innerHTML = correct_answers
-    document.getElementById('discountFinal').innerHTML = correct_answers
 }
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
