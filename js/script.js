@@ -20,7 +20,7 @@ let i = 0
 let state
 let exNum = 0
 let answer_id = 0
-let category_id = getCookie('category_id') || 1
+let category_id = getCookie('category_id') || 0
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 let User
 
@@ -38,9 +38,16 @@ getUser().then((User) => {
     exNum = 0
     state = 'chooseDirection'
     showMainButton('Готов!')
+    category_id = User.category_id || 0
     if(User.category_id > 0) {
         // Уже выбрал направление
-        
+        if (category_id == 3) {
+            document.querySelector('.winTwoBox.one').classList.add('activeButton')
+        } else if (category_id == 1) {
+            document.querySelector('.winTwoBox.two').classList.add('activeButton')
+        } else if (category_id == 2) {
+            document.querySelector('.winTwoBox.three').classList.add('activeButton')
+        }
     }
     // state = 'chooseExercise'
     // if(questions[0]) {
@@ -85,21 +92,23 @@ function goToMainWindow() {
 }
 
 function setPoints(categoryId){
-    document.querySelectorAll('.winTwoBox').forEach( btn => {
-        btn.classList.remove('activeButton')
-    })
-    if (categoryId == 3) {
-        document.querySelector('.winTwoBox.one').classList.add('activeButton')
-    } else if (categoryId == 1) {
-        document.querySelector('.winTwoBox.two').classList.add('activeButton')
-    } else if (categoryId == 2) {
-        document.querySelector('.winTwoBox.three').classList.add('activeButton')
+    if(User.category_id == 0) {
+        document.querySelectorAll('.winTwoBox').forEach( btn => {
+            btn.classList.remove('activeButton')
+        })
+        if (categoryId == 3) {
+            document.querySelector('.winTwoBox.one').classList.add('activeButton')
+        } else if (categoryId == 1) {
+            document.querySelector('.winTwoBox.two').classList.add('activeButton')
+        } else if (categoryId == 2) {
+            document.querySelector('.winTwoBox.three').classList.add('activeButton')
+        }
+        // Записать categoryId в кукис
+        category_id = categoryId
+        setCookie('category_id', categoryId)
+        sendRequest(`bot-users/${user_id}/`, "PUT", {is_verified :true, category_id})
+        showMainButton('Далее')
     }
-    // Записать categoryId в кукис
-    category_id = categoryId
-    setCookie('category_id', categoryId)
-    sendRequest(`bot-users/${user_id}/`, "PUT", {is_verified :true, category_id})
-    showMainButton('Далее')
 }
 
 function showScreen(elem) {
@@ -251,6 +260,9 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         state = 'chooseExercise'
         showScreen(winTwo)
         tg.MainButton.hide();
+        if(User.category_id > 0) {
+            showMainButton('Далее')
+        }
     } else if (state == 'chooseExercise'){
         // Выбор Упражнения
         category_id = getCookie('category_id') || category_id
