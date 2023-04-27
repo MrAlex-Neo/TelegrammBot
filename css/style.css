@@ -333,5 +333,5 @@ input:active, input:hover, input:focus {
     justify-content: space-between;
 } */
 #discountFinal {
-    font-family: bold;
+    font-weight: bold;
 }
