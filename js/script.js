@@ -141,23 +141,38 @@ function renderQuestions() {
             a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answers[index].answer_id)
             a.setAttribute('data-question_id', q.question_id)
+            a.setAttribute('data-index', index)
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
                 if(!answered) {
                     let answer_id = a.getAttribute('data-answer_id')
                     let question_id = a.getAttribute('data-question_id')
+                    let ex_id = a.getAttribute('data-index')
                     console.log(a)
                     sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
                     .then((response) => {
                         console.log(response)
-    
+                        
                         if(response.is_correct) {
                             a.classList.add('trueBar')
                             a.classList.remove('emptyBar')
+                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('trueBar')
+                                bar.classList.remove('emptyBar')
+                            })
                         } else {
                             a.classList.add('wrongBar')
                             a.classList.remove('emptyBar')
+                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('wrongBar')
+                                bar.classList.remove('emptyBar')
+                            })
+                            
                             let correct_answer = response.answer_id
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
