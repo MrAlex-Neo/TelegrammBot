@@ -82,16 +82,16 @@ getUser().then((User) => {
 //     btn.addEventListener('click', goToMainWindow)
 //   })
 
-let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
-    exBtn.addEventListener('click', () => {
-        exNum = ind
-        console.log(`exsButtons new exNum=${exNum}`)
-        showScreen(ex)
-        showExercise(exNum)
-        state == 'exercises'
-        // showMainButton(`Перейти к упражнению ${exNum+1}`)
-    })
-})
+// let exsButtons = document.querySelectorAll('.btnMainOrder button').forEach( (exBtn, ind) => {
+//     exBtn.addEventListener('click', () => {
+//         exNum = ind
+//         console.log(`exsButtons new exNum=${exNum}`)
+//         showScreen(ex)
+//         showExercise(exNum)
+//         state == 'exercises'
+//         // showMainButton(`Перейти к упражнению ${exNum+1}`)
+//     })
+// })
 
 function goToMainWindow() {
     showScreen(winThree)
