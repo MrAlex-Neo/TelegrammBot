@@ -27,6 +27,7 @@ let discount
 let questions 
 let userQuestions 
 let User
+let phone
 
 let winOne = document.querySelector('.windowDivOne')
 let winTwo = document.querySelector('.windowDivTwo')
