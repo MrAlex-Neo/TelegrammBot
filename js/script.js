@@ -20,12 +20,30 @@ let i = 0
 let state
 let exNum = 0
 let answer_id = 0
-let answered = false
 let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
     // console.log('renderQuestions')
-    renderQuestions()
+    // renderQuestions()
+
+    // chooseExercise state
+    state = 'chooseExercise'
+    category_id = getCookie('category_id') || category_id
+    exNum = 0
+    console.log(`chooseExercise new exNum=${exNum}`)
+    sendRequest('quizzes', "GET", {category_id})
+    .then((response) => {
+        console.log(response) 
+        questions = response[0].questions
+        localStorage.setItem('questions', JSON.stringify(questions));
+
+        renderQuestions()
+
+        showScreen(winThree)
+        showMainButton(`Перейти к упражнению ${exNum+1}`)
+        state = 'exercises'
+    })
+
 }
 
 let winOne = document.querySelector('.windowDivOne')
@@ -97,7 +115,9 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
-    if(answered) {
+
+    let answered = exs[ind].getAttribute('data-answered') || false
+    if(answered == true) {
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
         showMainButton(`Перейти к упражнению ${exNum+1}`)
@@ -141,12 +161,15 @@ function renderQuestions() {
             a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answers[index].answer_id)
             a.setAttribute('data-question_id', q.question_id)
+            a.setAttribute('data-index', index)
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
+                let answered = exs[ind].getAttribute('data-answered') || false
                 if(!answered) {
                     let answer_id = a.getAttribute('data-answer_id')
                     let question_id = a.getAttribute('data-question_id')
+                    let ex_id = a.getAttribute('data-index')
                     console.log(a)
                     sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
                     .then((response) => {
@@ -155,14 +178,25 @@ function renderQuestions() {
                         if(response.is_correct) {
                             a.classList.add('trueBar')
                             a.classList.remove('emptyBar')
+                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('trueBar')
+                                bar.classList.remove('emptyBar')
+                            })
                         } else {
                             a.classList.add('wrongBar')
                             a.classList.remove('emptyBar')
+                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('wrongBar')
+                                bar.classList.remove('emptyBar')
+                            })
                             let correct_answer = response.answer_id
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                             document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                         }
-                        answered = true
                         if(exNum == 5) {
                             //TODO: возвращать на неотвеченный вопрос 
                             state == 'final'
