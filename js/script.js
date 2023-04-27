@@ -22,6 +22,7 @@ let state
 let exNum = 0
 let answer_id = 0
 let category_id 
+let discount
 // let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 let questions 
 let userQuestions 
@@ -170,8 +171,14 @@ function showExercise(ind) {
 
 async function sendRequestToAmo(action) {
     url = `https://tg-api.tehnikum.school/amo_crm/v1/create_lead`
-    data = {
-        phone, action
+    //status
+    if(discount) {
+        data = {
+            phone, action, 
+            'status': discount
+        }
+    } else {
+        data = {phone, action}
     }
 
     url = url+"?"+ new URLSearchParams(data)
@@ -325,7 +332,7 @@ async function getUser() {
 async function updateUserPrize() {
     let response = await sendRequest('correct-answers/', "GET", {user_id})
     let correct_answers = response.correct_answers
-    let discount = response.discount
+    discount = response.discount
 
     document.getElementById('discount').innerHTML = discount
     document.getElementById('discountFinal').innerHTML = discount
