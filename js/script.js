@@ -263,7 +263,9 @@ function renderAnsweredQuestions() {
             let selected_answer = uQ.selected_answer
             let correct_answer = uQ.correct_answer
             if(question_status == "correct") {
-                document.querySelector(`.ex[data-question_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                console.log(`.ex[data-question_id="${uQ_ind}"]`)
+                console.log(document.querySelector(`.ex[data-question_id="${uQ_ind}"]`))
+                document.querySelector(`.ex[data-question_id="${uQ_ind}"]`).setAttribute('data-answered', true)
                 
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
