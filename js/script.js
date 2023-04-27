@@ -114,7 +114,8 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
-    if(exs[ind].getAttribute('data-answered') == true) {
+    let answered = exs[ind].getAttribute('data-answered') || false
+    if(answered == true) {
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
         showMainButton(`Перейти к упражнению ${exNum+1}`)
@@ -162,7 +163,8 @@ function renderQuestions() {
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
-                if(exs[ind].getAttribute('data-answered') != true) {
+                let answered = exs[ind].getAttribute('data-answered') || false
+                if(!answered) {
                     let answer_id = a.getAttribute('data-answer_id')
                     let question_id = a.getAttribute('data-question_id')
                     let ex_id = a.getAttribute('data-index')
