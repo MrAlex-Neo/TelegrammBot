@@ -88,6 +88,7 @@ function setPoints(categoryId){
     // Записать categoryId в кукис
     category_id = categoryId
     setCookie('category_id', categoryId)
+    sendRequest(`bot-users/${category_id}/`, "PUT", {is_verified :true})
     showMainButton('Далее')
 }
 
@@ -127,9 +128,9 @@ function showExercise(ind) {
 async function sendRequest(url, method, data) {
     url = `https://p-api2.tehnikum.school/api/${url}`
     
-    if(method == "POST") {
+    if(method == "POST" || method == "PUT") {
         let response = await fetch(url, {
-            method: "POST",
+            method: method,
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -210,15 +211,7 @@ function renderQuestions() {
                         }
                     })
                 } else {
-                    if(exNum == 5) {
-                        //TODO: возвращать на неотвеченный вопрос 
-                        state == 'final'
-                        showMainButton(`3.. 4... Закончили!`)
-                    } else {
-                        exNum = exNum+1
-                        console.log(`renderQuestions new exNum=${exNum}`)
-                        showMainButton(`Перейти к упражнению ${exNum+1}`)
-                    }
+                    
                 }
             })
         })
@@ -230,16 +223,9 @@ username.innerHTML = tg.initDataUnsafe.user.first_name
 
 
 // if(getCookie('category_id') != undefined) {
-if(7 == 5) {
-    // Экран упражнений
-    i = 2
-    state == states[3]
-    showScreen(winThree)
-    showMainButton('Далее')
-} else {
-    state = 'chooseDirection'
-    showMainButton('Готов!')
-}
+state = 'chooseDirection'
+showMainButton('Готов!')
+
 
 Telegram.WebApp.onEvent('mainButtonClicked', function() {    
     console.log({state, i, exNum})
@@ -266,13 +252,14 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
             state = 'exercises'
         })
     } else if (state == 'exercises'){
-        answered = false
+        
         // Упражнения
         showScreen(ex)
 
         //Показываю запрашиваемое упражнение
         console.log(`exercises ` + exNum)
         showExercise(exNum)
+        
         
         if(exNum == 5) {
             //TODO: возвращать на неотвеченный вопрос 
