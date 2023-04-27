@@ -245,13 +245,13 @@ function renderQuestions() {
                                 a.classList.remove('emptyBar')
                                 
                                 progressBars[ex_id].classList.add('trueBar')
-                                progressBars[ex_id].classList.remove('activeBar')
+                                progressBars[ex_id].classList.remove('emptyBar')
                             } else {
                                 a.classList.add('wrongBar')
                                 a.classList.remove('emptyBar')
 
                                 progressBars[ex_id].classList.add('wrongBar')
-                                progressBars[ex_id].classList.remove('activeBar')
+                                progressBars[ex_id].classList.remove('emptyBar')
                                 
                                 let correct_answer = response.answer_id
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
