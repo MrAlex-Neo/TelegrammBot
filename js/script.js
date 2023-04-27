@@ -202,23 +202,22 @@ function renderQuestions() {
                             if(response.is_correct) {
                                 a.classList.add('trueBar')
                                 a.classList.remove('emptyBar')
-                                let progresses = document.querySelectorAll('.btnMainOrder')
-                                progresses.forEach( progress => {
-                                    let bars = progress.querySelectorAll('div')
-                                    let bar = bars[ex_id]
-                                    bar.classList.add('trueBar')
-                                    bar.classList.remove('emptyBar')
-                                })
+                                
+                                let progress = document.querySelector('.btnMainOrder')
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('wrongBar')
+                                bar.classList.remove('emptyBar')
                             } else {
                                 a.classList.add('wrongBar')
                                 a.classList.remove('emptyBar')
-                                let progresses = document.querySelectorAll('.btnMainOrder')
-                                progresses.forEach( progress => {
-                                    let bars = progress.querySelectorAll('div')
-                                    let bar = bars[ex_id]
-                                    bar.classList.add('wrongBar')
-                                    bar.classList.remove('emptyBar')
-                                })
+
+                                let progress = document.querySelector('.btnMainOrder')
+                                let bars = progress.querySelectorAll('div')
+                                let bar = bars[ex_id]
+                                bar.classList.add('wrongBar')
+                                bar.classList.remove('emptyBar')
+                                
                                 let correct_answer = response.answer_id
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
