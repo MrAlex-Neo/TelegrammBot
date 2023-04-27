@@ -15,6 +15,7 @@ let states = [
 
 let user_id = tg.initDataUnsafe.user.id
 // let user_id = 1918321
+// let user_id = 6172141243
 
 let i = 0
 let state
@@ -50,6 +51,8 @@ getUser().then((User) => {
         } else if (category_id == 2) {
             document.querySelector('.winTwoBox.three').classList.add('activeButton')
         }
+        console.log('Рендерю вопросы')
+        renderQuestions()
     }
     console.log('User end')
     // state = 'chooseExercise'
