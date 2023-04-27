@@ -51,8 +51,8 @@ getUser().then((User) => {
         } else if (category_id == 2) {
             document.querySelector('.winTwoBox.three').classList.add('activeButton')
         }
-        console.log('Рендерю вопросы')
-        renderQuestions()
+        // console.log('Рендерю вопросы')
+        // renderQuestions()
     }
     console.log('User end')
     // state = 'chooseExercise'
@@ -150,7 +150,12 @@ function showExercise(ind) {
     if(answered == true) {
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
-        showMainButton(`Перейти к упражнению ${exNum+1}`)
+        if(exNum == 4) {
+            state == 'final'
+            showMainButton(`3.. 4... Закончили!`)
+        } else {
+            showMainButton(`Перейти к упражнению ${exNum+1}`)
+        }
     }
 }
 
@@ -227,7 +232,6 @@ function renderQuestions() {
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                             }
                             if(exNum == 4) {
-                                //TODO: возвращать на неотвеченный вопрос 
                                 state == 'final'
                                 showMainButton(`3.. 4... Закончили!`)
                             } else {
@@ -271,15 +275,14 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         }
     } else if (state == 'chooseExercise'){
         // Выбор Упражнения
-        // category_id = getCookie('category_id') || category_id
         exNum = 0
         console.log(`chooseExercise new exNum=${exNum}`)
         sendRequest('quizzes', "GET", {category_id})
         .then((response) => {
             console.log(response) 
             questions = response[0].questions
-            localStorage.setItem('questions', JSON.stringify(questions));
-
+            
+            console.log('Рендерю вопросы')
             renderQuestions()
 
             showScreen(winThree)
@@ -296,13 +299,12 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         showExercise(exNum)
         
         
-        if(exNum == 5) {
-            //TODO: возвращать на неотвеченный вопрос 
-            state == 'final'
-            showMainButton(`3.. 4... Закончили!`)
-        } else {
-            // showMainButton(`Перейти к упражнению ${exNum+1}`)
-        }
+        // if(exNum == 4) {
+        //     state == 'final'
+        //     showMainButton(`3.. 4... Закончили!`)
+        // } else {
+        //     showMainButton(`Перейти к упражнению ${exNum+1}`)
+        // }
     } else if (state == 'final'){
         // Финал
         showScreen(winEnd)
