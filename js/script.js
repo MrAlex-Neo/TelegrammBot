@@ -20,7 +20,7 @@ let i = 0
 let state
 let exNum = 0
 let answer_id = 0
-let category_id = getCookie('category_id') || 0
+let category_id 
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 let User
 
