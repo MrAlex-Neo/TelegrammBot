@@ -261,7 +261,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // Выбор направления
         state = 'chooseExercise'
         showScreen(winTwo)
-        if(User.category_id > 0) {
+        if(category_id > 0) {
             showMainButton('Далее')
         } else {
             tg.MainButton.hide();
