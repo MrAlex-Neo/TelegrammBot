@@ -293,6 +293,15 @@ async function getUser() {
     return response
 }
 
+async function updateUserPrize() {
+    let response = await sendRequest('correct-answers/', "GET", {user_id})
+    let correct_answers = response.correct_answers
+    let discount = response.discount
+
+    document.getElementById('discount').innerHTML = discount
+    document.getElementById('distanceTraveled').innerHTML = correct_answers
+    document.getElementById('discountFinal').innerHTML = correct_answers
+}
 
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
