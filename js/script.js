@@ -51,6 +51,7 @@ getUser().then((User) => {
             document.querySelector('.winTwoBox.three').classList.add('activeButton')
         }
     }
+    console.log('User end')
     // state = 'chooseExercise'
     // if(questions[0]) {
         // category_id = getCookie('category_id') || category_id
@@ -114,6 +115,7 @@ function setPoints(categoryId){
 }
 
 function showScreen(elem) {
+    console.log('showScreen ' + elem)
     winOne.classList.add('none')
     winTwo.classList.add('none')
     winThree.classList.add('none')
