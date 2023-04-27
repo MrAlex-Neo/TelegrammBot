@@ -207,6 +207,16 @@ function renderQuestions() {
                             showMainButton(`Перейти к упражнению ${exNum+1}`)
                         }
                     })
+                } else {
+                    if(exNum == 5) {
+                        //TODO: возвращать на неотвеченный вопрос 
+                        state == 'final'
+                        showMainButton(`3.. 4... Закончили!`)
+                    } else {
+                        exNum = exNum+1
+                        console.log(`renderQuestions new exNum=${exNum}`)
+                        showMainButton(`Перейти к упражнению ${exNum+1}`)
+                    }
                 }
             })
         })
