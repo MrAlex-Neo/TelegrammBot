@@ -332,6 +332,6 @@ input:active, input:hover, input:focus {
     display: flex;
     justify-content: space-between;
 } */
-.discountFinal {
+#discountFinal {
     font-family: bold;
 }
