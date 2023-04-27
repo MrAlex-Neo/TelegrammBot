@@ -141,8 +141,8 @@ function showExercise(ind) {
 
     //activeBar
     let progressBars = document.querySelectorAll('.btnMainOrder div')
-    progressBars[ex_id].classList.add('activeBar')
-    progressBars[ex_id].classList.remove('emptyBar')
+    progressBars[ind].classList.add('activeBar')
+    progressBars[ind].classList.remove('emptyBar')
     let answered = exs[ind].getAttribute('data-answered') || false
     if(answered == true) {
         exNum = exNum+1
