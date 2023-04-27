@@ -158,63 +158,66 @@ function renderQuestions() {
     let exs = document.querySelectorAll('.ex')
     questions.forEach( (q, ind) => {
         exs[ind].querySelector('h3').innerHTML = q.question
-        exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
-            a.innerHTML = q.answers[index].answer
-            a.setAttribute('data-answer_id', q.answers[index].answer_id)
-            a.setAttribute('data-question_id', q.question_id)
-            a.setAttribute('data-index', ind)
-            
-            a.addEventListener('click', () => {
-                // Обработка выбранного пользователем ответа
-                let answered = exs[ind].getAttribute('data-answered') || false
-                if(!answered) {
-                    let answer_id = a.getAttribute('data-answer_id')
-                    let question_id = a.getAttribute('data-question_id')
+        let answered = exs[ind].getAttribute('data-answered') || false
+        if(!answered) {
+            exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
+                a.innerHTML = q.answers[index].answer
+                a.setAttribute('data-answer_id', q.answers[index].answer_id)
+                a.setAttribute('data-question_id', q.question_id)
+                a.setAttribute('data-index', ind)
+                
+                a.addEventListener('click', () => {
+                    // Обработка выбранного пользователем ответа
                     let ex_id = a.getAttribute('data-index')
-                    console.log(a)
-                    sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
-                    .then((response) => {
-                        console.log(response)
-    
-                        if(response.is_correct) {
-                            a.classList.add('trueBar')
-                            a.classList.remove('emptyBar')
-                            let progresses = document.querySelectorAll('.btnMainOrder')
-                            progresses.forEach( progress => {
-                                let bars = progress.querySelectorAll('div')
-                                let bar = bars[ex_id]
-                                bar.classList.add('trueBar')
-                                bar.classList.remove('emptyBar')
-                            })
-                        } else {
-                            a.classList.add('wrongBar')
-                            a.classList.remove('emptyBar')
-                            let progresses = document.querySelectorAll('.btnMainOrder')
-                            progresses.forEach( progress => {
-                                let bars = progress.querySelectorAll('div')
-                                let bar = bars[ex_id]
-                                bar.classList.add('wrongBar')
-                                bar.classList.remove('emptyBar')
-                            })
-                            let correct_answer = response.answer_id
-                            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
-                            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
-                        }
-                        if(exNum == 5) {
-                            //TODO: возвращать на неотвеченный вопрос 
-                            state == 'final'
-                            showMainButton(`3.. 4... Закончили!`)
-                        } else {
-                            exNum = exNum+1
-                            console.log(`renderQuestions new exNum=${exNum}`)
-                            showMainButton(`Перейти к упражнению ${exNum+1}`)
-                        }
-                    })
-                } else {
-                    
-                }
+                    let answered = querySelectorAll('.ex')[ex_id].getAttribute('data-answered')
+                    if(!answered) {
+                        let answer_id = a.getAttribute('data-answer_id')
+                        let question_id = a.getAttribute('data-question_id')
+                        console.log(a)
+                        sendRequest(`user-answers/`, "POST", {user_id, question_id, answer_id})
+                        .then((response) => {
+                            console.log(response)
+                            document.querySelectorAll('.ex')[ex_id].setAttribute('data-answered', true)
+                            if(response.is_correct) {
+                                a.classList.add('trueBar')
+                                a.classList.remove('emptyBar')
+                                let progresses = document.querySelectorAll('.btnMainOrder')
+                                progresses.forEach( progress => {
+                                    let bars = progress.querySelectorAll('div')
+                                    let bar = bars[ex_id]
+                                    bar.classList.add('trueBar')
+                                    bar.classList.remove('emptyBar')
+                                })
+                            } else {
+                                a.classList.add('wrongBar')
+                                a.classList.remove('emptyBar')
+                                let progresses = document.querySelectorAll('.btnMainOrder')
+                                progresses.forEach( progress => {
+                                    let bars = progress.querySelectorAll('div')
+                                    let bar = bars[ex_id]
+                                    bar.classList.add('wrongBar')
+                                    bar.classList.remove('emptyBar')
+                                })
+                                let correct_answer = response.answer_id
+                                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
+                            }
+                            if(exNum == 5) {
+                                //TODO: возвращать на неотвеченный вопрос 
+                                state == 'final'
+                                showMainButton(`3.. 4... Закончили!`)
+                            } else {
+                                exNum = exNum+1
+                                console.log(`renderQuestions new exNum=${exNum}`)
+                                showMainButton(`Перейти к упражнению ${exNum+1}`)
+                            }
+                        })
+                    } else {
+                        
+                    }
+                })
             })
-        })
+        }
     })
 }
 
