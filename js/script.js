@@ -388,6 +388,6 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         state = 'close'
         showMainButton('Забрать скидку')
     } else if (state == 'close'){
-        webviewClose();
+        tg.close();
     }
 })
