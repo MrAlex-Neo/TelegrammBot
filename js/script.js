@@ -161,7 +161,7 @@ function renderQuestions() {
             a.innerHTML = q.answers[index].answer
             a.setAttribute('data-answer_id', q.answers[index].answer_id)
             a.setAttribute('data-question_id', q.question_id)
-            a.setAttribute('data-index', index)
+            a.setAttribute('data-index', ind)
             
             a.addEventListener('click', () => {
                 // Обработка выбранного пользователем ответа
