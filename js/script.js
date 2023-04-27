@@ -269,7 +269,7 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         }
     } else if (state == 'chooseExercise'){
         // Выбор Упражнения
-        category_id = getCookie('category_id') || category_id
+        // category_id = getCookie('category_id') || category_id
         exNum = 0
         console.log(`chooseExercise new exNum=${exNum}`)
         sendRequest('quizzes', "GET", {category_id})
