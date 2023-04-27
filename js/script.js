@@ -250,7 +250,7 @@ function renderQuestions() {
 }
 
 async function getUser() {
-    let response = await sendRequest('get-user/', "GET", {user_id})
+    let response = await sendRequest('get-user', "GET", {user_id})
     return response[0]
 }
 
