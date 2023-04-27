@@ -155,7 +155,7 @@ function showExercise(ind) {
         console.log(`Открываю уже отвеченный вопрос`)
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
-        if(exNum == 4) {
+        if(exNum == 5) {
             state == 'final'
             showMainButton(`3.. 4... Закончили!`)
         } else {
