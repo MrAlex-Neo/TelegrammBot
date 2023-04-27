@@ -289,11 +289,17 @@ function renderAnsweredQuestions() {
             if(question_status == "correct") {
                 document.querySelectorAll(`.ex`)[uQ_ind].setAttribute('data-answered', true)
                 
+                progressBars[uQ_ind].classList.add('trueBar')
+                progressBars[uQ_ind].classList.remove('activeBar')
+
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
             } else if(question_status == "incorrect") {
                 document.querySelectorAll(`.ex`)[uQ_ind].setAttribute('data-answered', true)
                 
+                progressBars[uQ_ind].classList.add('wrongBar')
+                progressBars[uQ_ind].classList.remove('activeBar')
+
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                 
