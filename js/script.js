@@ -88,7 +88,7 @@ function setPoints(categoryId){
     // Записать categoryId в кукис
     category_id = categoryId
     setCookie('category_id', categoryId)
-    sendRequest(`bot-users/${category_id}/`, "PUT", {is_verified :true})
+    sendRequest(`bot-users/${user_id}/`, "PUT", {is_verified :true, category_id})
     showMainButton('Далее')
 }
 
