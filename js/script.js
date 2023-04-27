@@ -195,6 +195,7 @@ function renderQuestions() {
     let exs = document.querySelectorAll('.ex')
     questions.forEach( (q, ind) => {
         exs[ind].querySelector('h3').innerHTML = q.question
+        exs[ind].setAttribute('data-question_id', q.question_id)
         let answered = exs[ind].getAttribute('data-answered') || false
         if(!answered) {
             exs[ind].querySelectorAll('.exAnswers button').forEach( (a, index) => {
@@ -262,12 +263,12 @@ function renderAnsweredQuestions() {
             let selected_answer = uQ.selected_answer
             let correct_answer = uQ.correct_answer
             if(question_status == "correct") {
-                document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                document.querySelector(`.ex[data-question_id="${uQ_ind}"`).setAttribute('data-answered', true)
                 
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
             } else if(question_status == "incorrect") {
-                document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                document.querySelector(`.ex[data-question_id="${uQ_ind}"`).setAttribute('data-answered', true)
                 
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
