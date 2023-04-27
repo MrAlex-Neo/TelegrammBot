@@ -25,7 +25,7 @@ let category_id = getCookie('category_id') || 1
 let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
 if(questions[0]) {
     // console.log('renderQuestions')
-    renderQuestions()
+    // renderQuestions()
 }
 
 let winOne = document.querySelector('.windowDivOne')
