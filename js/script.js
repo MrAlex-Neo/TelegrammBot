@@ -69,7 +69,6 @@ getUser().then((User) => {
         //     state = 'exercises'
         // })
     // }
-
 })
 
 // let toMainEx = document.querySelectorAll('.toExercises')
@@ -205,20 +204,16 @@ function renderQuestions() {
                                 a.classList.add('trueBar')
                                 a.classList.remove('emptyBar')
                                 
-                                let progress = document.querySelector('.btnMainOrder')
-                                let bars = progress.querySelectorAll('div')
-                                let bar = bars[ex_id]
-                                bar.classList.add('wrongBar')
-                                bar.classList.remove('emptyBar')
+                                let progressBars = document.querySelectorAll('.btnMainOrder div')
+                                progressBars[ex_id].classList.add('wrongBar')
+                                progressBars[ex_id].classList.remove('emptyBar')
                             } else {
                                 a.classList.add('wrongBar')
                                 a.classList.remove('emptyBar')
 
-                                let progress = document.querySelector('.btnMainOrder')
-                                let bars = progress.querySelectorAll('div')
-                                let bar = bars[ex_id]
-                                bar.classList.add('wrongBar')
-                                bar.classList.remove('emptyBar')
+                                let progressBars = document.querySelectorAll('.btnMainOrder div')
+                                progressBars[ex_id].classList.add('wrongBar')
+                                progressBars[ex_id].classList.remove('emptyBar')
                                 
                                 let correct_answer = response.answer_id
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
