@@ -156,7 +156,7 @@ function showExercise(ind) {
         exNum = exNum+1
         console.log(`showExercise new exNum=${exNum}`)
         if(exNum == 5) {
-            state == 'final'
+            state = 'final'
             showMainButton(`3.. 4... Закончили!`)
         } else {
             showMainButton(`Перейти к упражнению ${exNum+1}`)
@@ -236,7 +236,7 @@ function renderQuestions() {
                                 document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
                             }
                             if(exNum == 4) {
-                                state == 'final'
+                                state = 'final'
                                 showMainButton(`3.. 4... Закончили!`)
                             } else {
                                 exNum = exNum+1
