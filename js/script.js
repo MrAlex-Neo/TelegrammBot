@@ -43,8 +43,10 @@ getUser().then((User) => {
     state = 'chooseDirection'
     showMainButton('Готов!')
     category_id = User.category_id || 0
+    phone = User.phone || '998081231212'
     console.log('category_id ' + category_id)
     if(category_id > 0) {
+        updateUserPrize()
         console.log('Активирую направление ' + category_id)
         // Уже выбрал направление
         if (category_id == 3) {
@@ -144,7 +146,9 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
-
+    if(ind == 0) {
+        sendRequestToAmo('m-answered')
+    }
     //activeBar
     
     progressBars[ind].classList.add('activeBar')
@@ -162,6 +166,24 @@ function showExercise(ind) {
             showMainButton(`Перейти к упражнению ${exNum+1}`)
         }
     }
+}
+
+async function sendRequestToAmo(action) {
+    url = `https://tg-api.tehnikum.school/amo_crm/v1/create_lead`
+    data = {
+        phone, action
+    }
+
+    url = url+"?"+ new URLSearchParams(data)
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    response = await response.json()
+    return response
 }
 
 async function sendRequest(url, method, data) {
@@ -306,9 +328,6 @@ async function updateUserPrize() {
 username.innerHTML = tg.initDataUnsafe.user.first_name
 
 
-// if(getCookie('category_id') != undefined) {
-
-
 
 Telegram.WebApp.onEvent('mainButtonClicked', function() {    
     console.log({state, i, exNum})
@@ -356,8 +375,9 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // }
     } else if (state == 'final'){
         // Финал
+        updateUserPrize()
+        sendRequestToAmo('m-complete')
         showScreen(winEnd)
-        
         state = 'close'
         showMainButton('Забрать скидку')
     } else if (state == 'close'){
