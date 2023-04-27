@@ -178,7 +178,8 @@ function renderQuestions() {
                         if(response.is_correct) {
                             a.classList.add('trueBar')
                             a.classList.remove('emptyBar')
-                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                            let progresses = document.querySelectorAll('.btnMainOrder')
+                            progresses.forEach( progress => {
                                 let bars = progress.querySelectorAll('div')
                                 let bar = bars[ex_id]
                                 bar.classList.add('trueBar')
@@ -187,7 +188,8 @@ function renderQuestions() {
                         } else {
                             a.classList.add('wrongBar')
                             a.classList.remove('emptyBar')
-                            let progresses = document.querySelectorAll('.btnMainOrder').forEach( progress => {
+                            let progresses = document.querySelectorAll('.btnMainOrder')
+                            progresses.forEach( progress => {
                                 let bars = progress.querySelectorAll('div')
                                 let bar = bars[ex_id]
                                 bar.classList.add('wrongBar')
