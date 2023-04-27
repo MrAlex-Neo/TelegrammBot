@@ -39,6 +39,7 @@ getUser().then((User) => {
     state = 'chooseDirection'
     showMainButton('Готов!')
     category_id = User.category_id || 0
+    console.log('category_id ' + category_id)
     if(category_id > 0) {
         console.log('Активирую направление ' + category_id)
         // Уже выбрал направление
@@ -93,7 +94,7 @@ function goToMainWindow() {
 }
 
 function setPoints(categoryId){
-    if(User.category_id == 0) {
+    if(category_id == 0) {
         document.querySelectorAll('.winTwoBox').forEach( btn => {
             btn.classList.remove('activeButton')
         })
@@ -260,9 +261,10 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // Выбор направления
         state = 'chooseExercise'
         showScreen(winTwo)
-        tg.MainButton.hide();
         if(User.category_id > 0) {
             showMainButton('Далее')
+        } else {
+            tg.MainButton.hide();
         }
     } else if (state == 'chooseExercise'){
         // Выбор Упражнения
