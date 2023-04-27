@@ -22,7 +22,8 @@ let state
 let exNum = 0
 let answer_id = 0
 let category_id 
-let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
+// let questions = localStorage.questions ? JSON.parse(localStorage.questions) : {} 
+let questions 
 let User
 
 let winOne = document.querySelector('.windowDivOne')
@@ -31,6 +32,7 @@ let winThree = document.querySelector('.windowDivThree')
 let ex = document.querySelector('.exercises')
 let winEnd = document.querySelector('.windowDivEnd')
 
+let progressBars = document.querySelectorAll('.btnMainOrder div')
 
 
 getUser().then((User) => {
@@ -143,7 +145,7 @@ function showExercise(ind) {
     exs[ind].classList.remove('none')
 
     //activeBar
-    let progressBars = document.querySelectorAll('.btnMainOrder div')
+    
     progressBars[ind].classList.add('activeBar')
     progressBars[ind].classList.remove('emptyBar')
     let answered = exs[ind].getAttribute('data-answered') || false
@@ -216,14 +218,12 @@ function renderQuestions() {
                                 a.classList.add('trueBar')
                                 a.classList.remove('emptyBar')
                                 
-                                let progressBars = document.querySelectorAll('.btnMainOrder div')
                                 progressBars[ex_id].classList.add('trueBar')
                                 progressBars[ex_id].classList.remove('activeBar')
                             } else {
                                 a.classList.add('wrongBar')
                                 a.classList.remove('emptyBar')
 
-                                let progressBars = document.querySelectorAll('.btnMainOrder div')
                                 progressBars[ex_id].classList.add('wrongBar')
                                 progressBars[ex_id].classList.remove('activeBar')
                                 
