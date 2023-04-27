@@ -146,9 +146,9 @@ function showExercise(ind) {
         exercise.classList.add('none')
     })
     exs[ind].classList.remove('none')
-    if(ind == 0) {
-        sendRequestToAmo('m-answered')
-    }
+    // if(ind == 0) {
+    //     sendRequestToAmo('m-answered')
+    // }
     //activeBar
     
     progressBars[ind].classList.add('activeBar')
@@ -305,6 +305,7 @@ function renderAnsweredQuestions() {
         })
     } else {
         console.log(`Не отвечал на вопросы`)
+        sendRequestToAmo('m-answered')
     }
    
 
