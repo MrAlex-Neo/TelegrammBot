@@ -254,27 +254,34 @@ function renderQuestions() {
 
 function renderAnsweredQuestions() {
     //Уже отвечал на вопросы
-    userQuestions.forEach((uQ, uQ_ind) => {
-        let question_status = uQ.question_status
-        let selected_answer = uQ.selected_answer
-        let correct_answer = uQ.correct_answer
-        if(question_status == "correct") {
-            document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
-            
-            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
-            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
-        } else if(question_status == "incorrect") {
-            document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
-            
-            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
-            document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
-            
-            document.querySelector(`.exAnswers button[data-answer_id="${selected_answer}"]`).classList.add('wrongBar')
-            document.querySelector(`.exAnswers button[data-answer_id="${selected_answer}"]`).classList.remove('emptyBar')
-        } else if(question_status == "wait") {
-
-        }
-    })
+    console.log(`renderAnsweredQuestions`)
+    if(userQuestions != 0) {
+        console.log(`Уже отвечал на вопросы`)
+        userQuestions.forEach((uQ, uQ_ind) => {
+            let question_status = uQ.question_status
+            let selected_answer = uQ.selected_answer
+            let correct_answer = uQ.correct_answer
+            if(question_status == "correct") {
+                document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                
+                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
+            } else if(question_status == "incorrect") {
+                document.querySelector(`.ex[data-answer_id="${uQ_ind}"`).setAttribute('data-answered', true)
+                
+                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.add('trueBar')
+                document.querySelector(`.exAnswers button[data-answer_id="${correct_answer}"]`).classList.remove('emptyBar')
+                
+                document.querySelector(`.exAnswers button[data-answer_id="${selected_answer}"]`).classList.add('wrongBar')
+                document.querySelector(`.exAnswers button[data-answer_id="${selected_answer}"]`).classList.remove('emptyBar')
+            } else if(question_status == "wait") {
+    
+            }
+        })
+    } else {
+        console.log(`Не отвечал на вопросы`)
+    }
+   
 
 }
 
@@ -306,31 +313,19 @@ Telegram.WebApp.onEvent('mainButtonClicked', function() {
         // Выбор Упражнения
         exNum = 0
         console.log(`chooseExercise new exNum=${exNum}`)
-        if(questions != 0) {
-            //Уже отвечал на вопросы
-            console.log('Уже отвечал на вопросы')
+
+        sendRequest('quizzes', "GET", {category_id})
+        .then((response) => {
+            console.log(response) 
+            questions = response[0].questions
+            
             console.log('Рендерю вопросы')
             renderQuestions()
-            
+
             showScreen(winThree)
             showMainButton(`Перейти к упражнению ${exNum+1}`)
             state = 'exercises'
-        } else {
-            //До этого не отвечал на вопросы
-            console.log('До этого не отвечал на вопросы')
-            sendRequest('quizzes', "GET", {category_id})
-            .then((response) => {
-                console.log(response) 
-                questions = response[0].questions
-                
-                console.log('Рендерю вопросы')
-                renderQuestions()
-    
-                showScreen(winThree)
-                showMainButton(`Перейти к упражнению ${exNum+1}`)
-                state = 'exercises'
-            })
-        }
+        })
     } else if (state == 'exercises'){
         
         // Упражнения
