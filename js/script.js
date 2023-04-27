@@ -39,7 +39,8 @@ getUser().then((User) => {
     state = 'chooseDirection'
     showMainButton('Готов!')
     category_id = User.category_id || 0
-    if(User.category_id > 0) {
+    if(category_id > 0) {
+        console.log('Активирую направление ' + category_id)
         // Уже выбрал направление
         if (category_id == 3) {
             document.querySelector('.winTwoBox.one').classList.add('activeButton')
