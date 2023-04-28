@@ -45,7 +45,7 @@ getUser().then((User) => {
     state = 'chooseDirection'
     showMainButton('Готов!')
     category_id = User.category_id || 0
-    phone = User.phone
+    phone = User.phone_number
     console.log('category_id ' + category_id)
     if(category_id > 0) {
         updateUserPrize()
